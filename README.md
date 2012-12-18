@@ -9,10 +9,9 @@ Individual modules only support one of each of the following resources:
 * css
 * js
 * html
-Each resource should have the same file name as the folder containing them.
 
-*modules
-** example_mod
-*** example_mod.css
-*** example_mod.html
-*** example_mod.js
+Each resource should have the same file name as the folder containing them.
+* example_mod
+ * example_mod.css
+ * example_mod.html
+ * example_mod.js
