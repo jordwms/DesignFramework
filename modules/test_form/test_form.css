@@ -26,7 +26,11 @@ td {
     padding: 5px;
     vertical-align: middle;
 }
-td.input {
+td.input,
+td.canvas_input {
+    width: 70%;
+}
+td.canvas_input {
 
 }
 td.info {
@@ -41,7 +45,7 @@ td.unit {
 }
 td.action {
     width: 50px;
-    text-align: center;
+    text-align: right;
 }
 td.input span {
     display: block;
@@ -68,16 +72,20 @@ input[type="url"],
 input[type="search"],
 input[type="tel"],
 input[type="color"],
-.uneditable-input {
-    width: 100%;
+.uneditable-input,
+textarea {
+    width: 90%;
     height: 44px;
     font-size: 24px;
     line-height: 44px;
     vertical-align: middle;
 }
-textarea{
-    width: 100%;
+
+canvas {
+    width: 90%;
 }
+
+
 /* ==== primary styles =====================================================
     iPhone Landscape
     ========================================================================== */
@@ -96,6 +104,12 @@ textarea{
     iPad Portrait and Android HD landscape
     ========================================================================== */
 @media only screen and (min-width: 800px) {
+    td.input {
+        width: 40%;
+    }
+    td.canvas_input {
+        width: 60%;
+    }
     td.info {
         display: table-cell;
         visibility: visible;
