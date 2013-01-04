@@ -28,6 +28,10 @@ var CanvasDrawr = function(options) {
             
             canvas.addEventListener('touchstart', self.preDraw, false);
             canvas.addEventListener('touchmove', self.draw, false);
+
+
+            canvas.addEventListener('click', self.preDraw, false);
+            canvas.addEventListener('mousedown', self.draw, false);
             
             
         },
@@ -38,7 +42,8 @@ var CanvasDrawr = function(options) {
               
                 var id      = touch.identifier, 
                     colors  = ["red", "green", "yellow", "blue", "magenta", "orangered"],
-                    mycolor = colors[Math.floor(Math.random() * colors.length)];
+                    // mycolor = colors[Math.floor(Math.random() * colors.length)];
+                    mycolor = "black";
               
                 lines[id] = { x     : this.pageX - offset.left, 
                               y     : this.pageY - offset.top, 
@@ -83,5 +88,5 @@ var CanvasDrawr = function(options) {
 
 
 $(function(){
-  var super_awesome_multitouch_drawing_canvas_thingy = new CanvasDrawr({id:"example", size: 15 }); 
+  var super_awesome_multitouch_drawing_canvas_thingy = new CanvasDrawr({id:"example", size: 10 }); 
 });
