@@ -102,7 +102,7 @@
 		if( in_array(key($_GET), $modules) ){
 			$module_html = MODULES_DIR.key($_GET).'/'.key($_GET).'.html';
 			$css .= '<link rel="stylesheet" href="'.MODULES_DIR.key($_GET).'/'.key($_GET).'.css">';
-			$js .= NL.'<script src="'.MODULES_DIR.key($_GET).'.js"></script>';
+			$js .= NL.'<script src="'.MODULES_DIR.key($_GET).'/'.key($_GET).'.js"></script>';
 		} else {
 			header("HTTP/1.0 404 Not Found");
 			require(GLOBAL_DIR.'html/404.html');
