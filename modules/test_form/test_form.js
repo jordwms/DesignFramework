@@ -1,8 +1,6 @@
 $(document).ready(function() {
     /* Init draw area*/
-    $(function(){
-      var draw_area = new CanvasDrawr({id:"example", size: 10 });
-    });
+    var signature = new CanvasDrawr({id:"signature", size: 10 });
 
     /*
      *  Activate form elements on focus

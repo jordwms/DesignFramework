@@ -404,7 +404,7 @@
                 <!-- First Cell contains input and label
                      Should ALWAYS be visible -->
                 <td class="canvas_input">
-                    <canvas title="draw_area" class="draw_area"></canvas>
+                    <canvas id="signature" class="draw_area"></canvas>
                 </td>
 
                 <!-- Third Cell contains a description or additional info
@@ -424,4 +424,5 @@
     </fieldset>
 </form>
 
-<script type="text/javascript" src="./draw_area/draw_area.js"></script>
+<!-- must include the draw_area.js manually from the draw_area module -->
+<script type="text/javascript" src="modules/draw_area/draw_area.js"></script>
