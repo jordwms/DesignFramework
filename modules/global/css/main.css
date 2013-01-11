@@ -196,6 +196,14 @@ textarea {
     *zoom: 1;
 }
 
+
+@media only screen and (min-width: 768px) {
+
+    body { margin: 0 1.3em; }
+
+}
+
+
 /* ==========================================================================
    Print styles.
    Inlined to avoid required HTTP connection: h5bp.com/r
