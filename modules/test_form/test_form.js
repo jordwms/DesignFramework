@@ -1,4 +1,12 @@
 $(document).ready(function() {
+    /* Init draw area*/
+    $(function(){
+      var draw_area = new CanvasDrawr({id:"example", size: 10 });
+    });
+
+    /*
+     *  Activate form elements on focus
+     */
     $("textarea,input,select,button,canvas").focus(function() {
         $(this).closest("tr").addClass('active');
     });
@@ -8,7 +16,7 @@ $(document).ready(function() {
     });
 
     $("tr").click(function() {
-        $(this).find("input,textarea,select,button,canvas").focus().select(); 
+        $(this).find("input,textarea,select,button,canvas").focus().select();
         return(false);
     });
 });
