@@ -2,15 +2,25 @@
 
 .project{
     border: 1px solid #BBB;
-    margin: .25em 0;
+    margin: .25em 5px;
     padding: .5em 0;
+}
+.project:after,
+.new:after,
+.today:after {
+    clear: both;
+    float: none;
+    content: ".";
+    height: 0;
+    visibility: hidden;
+    display: block;
 }
 
 .date-holder{
-    border-right: 1px solid #BBB;
     width: 4em;
     text-align: center;
     vertical-align: middle;
+    float: left;
 }
 .date-holder .day{
     font-size: 28px;
@@ -22,7 +32,18 @@
 }
 
 .attributes{
-
+    float: left;
+    padding-left: 1em;
+    font-size: 0.7em;
+    line-height: 2.1em;
+    border-left: 1px solid #BBB;
+}
+.attributes > div {
+    padding-right: 1em;
+}
+.attributes span {
+    font-weight: bold;
+    display: none;
 }
 
 /* ==== primary styles =====================================================
@@ -36,8 +57,15 @@
     Android/HD mobile styles
     ========================================================================== */
 @media only screen and (min-width: 540px) {
-    fieldset {
-        margin: 1em 5%;
+    .project {
+        margin: .25em 10%;
+    }
+    .attributes {
+        width: 80%;
+    }
+    .attributes > div {
+        float: left;
+        width: 46%;
     }
 }
 
@@ -45,15 +73,23 @@
     iPad Portrait and Android HD landscape
     ========================================================================== */
 @media only screen and (min-width: 800px) {
-
+    .attributes {
+        width: 85%;
+    }
+    .attributes > div {
+        width: 31%;
+    }
 }
 
 /* ==== primary styles =====================================================
     iPad landscape/Average Desktop
     ========================================================================== */
 @media only screen and (min-width: 1024px) {
-    fieldset {
-        margin: 1em 12.5%;
+    .project {
+        margin: .25em 12.5%;
+    }
+    .attributes span {
+        display: inline;
     }
 }
 
@@ -61,8 +97,13 @@
     Wide/HD Desktop Displays
     ========================================================================== */
 @media only screen and (min-width: 1280px) {
-    fieldset {
-        margin: 1em 16%;
+    .project {
+        margin: .25em 16%;
+    }
+    .attributes{
+        font-size: 0.8em;
+        width: 90%;
+        line-height: 1.8em;
     }
 }
 </style>
@@ -75,21 +116,18 @@
         </div>
         <div class="attributes">
             <title>0000222222/3333/4455678</title>
-            <div class="location"></div>
-            <div class="customer"></div>
-            <div class=""></div>
-        </div>
-    </div>
-    <div class="project">
-        <div class="date-holder">
-            <div class="day">13</div>
-            <div class="month">Jan</div>
-        </div>
-        <div class="attributes">
-            <title>0000222222/3333/4455678</title>
-            <div class="location"></div>
-            <div class="customer"></div>
-            <div class=""></div>
+            <div>
+                <div class="wr_id"><span>Work Report ID:</span> 82763347</div>
+                <div class="customer"><span>Customer:</span> Some Petrol Company</div>
+            </div>
+            <div>
+                <div class="location"><span>Location:</span> Boulder, CO 80304</div>
+                <div class="customer_ref"><span>Customer Ref:</span> 73847567</div>
+            </div>
+            <div>
+                <div class="rtd_ref"><span>RTD Ref:</span> 37487957</div>
+                <div class="contact"><span>Contact:</span> Morgan Jeffrey</div>
+            </div>
         </div>
     </div>
     <div class="project new today">
@@ -97,11 +135,41 @@
             <div class="day">18</div>
             <div class="month">Jan</div>
         </div>
+        <div class="attributes">
+            <title>0000222222/3333/4455678</title>
+            <div>
+                <div class="wr_id"><span>Work Report ID:</span> 82763347</div>
+                <div class="customer"><span>Customer:</span> Some Petrol Company</div>
+            </div>
+            <div>
+                <div class="location"><span>Location:</span> Boulder, CO 80304</div>
+                <div class="customer_ref"><span>Customer Ref:</span> 73847567</div>
+            </div>
+            <div>
+                <div class="rtd_ref"><span>RTD Ref:</span> 37487957</div>
+                <div class="contact"><span>Contact:</span> Morgan Jeffrey</div>
+            </div>
+        </div>
     </div>
     <div class="project">
         <div class="date-holder">
             <div class="day">24</div>
             <div class="month">Jan</div>
+        </div>
+        <div class="attributes">
+            <title>0000222222/3333/4455678</title>
+            <div>
+                <div class="wr_id"><span>Work Report ID:</span> 82763347</div>
+                <div class="customer"><span>Customer:</span> Some Petrol Company</div>
+            </div>
+            <div>
+                <div class="location"><span>Location:</span> Boulder, CO 80304</div>
+                <div class="customer_ref"><span>Customer Ref:</span> 73847567</div>
+            </div>
+            <div>
+                <div class="rtd_ref"><span>RTD Ref:</span> 37487957</div>
+                <div class="contact"><span>Contact:</span> Morgan Jeffrey</div>
+            </div>
         </div>
     </div>
 </div>
