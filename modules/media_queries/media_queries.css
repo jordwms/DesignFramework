@@ -1,0 +1,142 @@
+p,#devices { font-weight: bold; }
+p { color: rgb(217,103,0); font-size: 1.3em; }
+#devices { color: rgb(34,50,172); }
+#devices div { margin-bottom: .65em; }
+
+/* =========================================================================
+Default / iPhone Portrait
+
+All default styles go here and will be applied to all devices with 
+resolutions below 480px wide. All following media queries will be read 
+after this, overriding necessary styles and applying them to their 
+corresponding browser resolutions.
+========================================================================== */
+
+.iPhone,
+.QVGA,
+.WQVGA,
+.HVGA {
+  display: block;
+}
+
+.landscape,
+.HVGALandscape,
+.QVGAHD,
+.WVGAHD,
+.QVGAHDLandscape,
+.extraHD,
+.iPad,
+.WVGAHDLandscape,
+.WXGA,
+.extraHDLandscape,
+.iPadLandscape,
+.desktop,
+.WXGALandscape,
+.wide {
+  display: none;
+}
+
+/*--------------------------------------------------------------------------
+End of Default / iPhone Portrait
+
+Devices with browser resolutions narrower than 480px do not read past this 
+point, improving page render times, and minimizing bandwidth
+... if you're doing it right.
+---------------------------------------------------------------------------*/
+
+/* =========================================================================
+iPhone Landscape
+========================================================================== */
+@media only screen and (min-width: 480px) {
+
+  .iPhone,
+  .QVGA,
+  .WQVGA,
+  .HVGA {
+    display: none;
+  }
+
+  .landscape,
+  .HVGALandscape,
+  .QVGAHD,
+  .WVGAHD {
+    display: block;
+  }
+
+}
+
+/* =========================================================================
+Android/HD Mobile
+========================================================================== */
+@media only screen and (min-width: 540px) {
+
+  .landscape,
+  .HVGALandscape,
+  .QVGAHD,
+  .WVGAHD {
+    display: none;
+  }
+
+  .extraHD,
+  .QVGAHDLandscape {
+    display: block;
+  }
+
+}
+
+/* =========================================================================
+iPad Portrait/Android HD
+========================================================================== */
+@media only screen and (min-width: 768px) {
+
+  .body { margin: 0 1.3em; }
+
+  .QVGAHDLandscape,
+  .extraHD {
+    display: none;
+  }
+
+  .iPad,
+  .WVGAHDLandscape,
+  .WXGA,
+  .extraHDLandscape {
+    display: block;
+  }
+
+}
+
+/* =========================================================================
+iPad Landscape/Average Desktop
+========================================================================== */
+@media only screen and (min-width: 1024px) {
+
+  .iPad,
+  .WVGAHDLandscape,
+  .WXGA,
+  .extraHDLandscape {
+    display: none;
+  }
+
+  .iPadLandscape,
+  .desktop {
+    display: block;
+  }
+
+}
+
+/* =========================================================================
+Wide/HD Desktop
+========================================================================== */
+@media only screen and (min-width: 1280px) {
+
+  .iPadLandscape,
+  .desktop {
+    display: none;
+  }
+
+  .WXGALandscape,
+  .wide {
+    display: block;
+  }
+
+}

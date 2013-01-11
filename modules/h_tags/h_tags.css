@@ -1,0 +1,39 @@
+header~h1,
+h2,
+h3,
+h4 {
+  font-family: sans-serif;
+  font-weight: 500;
+}
+
+header~h1 {
+  font-size: 30px;
+  font-size: 1.9em;
+  color: rgb(129,101,92);
+  line-height: 26px;
+}
+header~h1::first-letter {
+  color: rgb(255,100,7);
+}
+
+h2 {
+  font-size: 18px;
+  font-size: 1.1em;
+}
+h3 {
+  font-size: 1em;
+  border-bottom: 1px solid rgb(207,207,207);
+}
+h4 {
+  font-size: 1em;
+}
+
+p {
+  margin-left: 1em;
+}
+
+@media only screen and (min-width: 768px) {
+
+  body { margin: 0 1.3em; }
+
+}
