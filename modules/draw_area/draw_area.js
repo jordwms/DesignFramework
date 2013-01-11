@@ -8,7 +8,7 @@ var CanvasDrawr = function(options) {
     var canvas = document.getElementById(options.id),
         ctxt = canvas.getContext("2d");
         
-    canvas.style.width = '100%'
+    canvas.style.width = '100%';
     canvas.width = canvas.offsetWidth;
     canvas.style.width = '';
 
@@ -18,7 +18,9 @@ var CanvasDrawr = function(options) {
     ctxt.pX = undefined;
     ctxt.pY = undefined;
 
-    var lines = [,,];
+    var is_move = false; // Tracks whether or not the user is click-and-dragging
+    var mouse_id = 0; // This is the only way to keep track of mouse actions
+    var lines = [];
     var offset = $(canvas).offset();
     
     var self = {
@@ -26,38 +28,39 @@ var CanvasDrawr = function(options) {
         init: function() {
             //set pX and pY from first click
             
-            canvas.addEventListener('touchstart', self.preDraw, false);
-            canvas.addEventListener('touchmove', self.draw, false);
+            canvas.addEventListener('touchstart', self.preMove, false);
+            canvas.addEventListener('touchmove', self.move, false);
+
+            canvas.addEventListener('mousedown', self.mouse_startMove, false);
+            canvas.addEventListener('mousemove', self.mouse_move, false);
+            canvas.addEventListener('mouseup',   self.mouse_endMove, false);
             
             
         },
 
-        preDraw: function(event) {
+        preMove: function(event) {
 
-            $.each(event.touches, function(i, touch) {
+            $.each(event.touches, function(i, touch) { // Each time the canvas is touched...
               
-                var id      = touch.identifier, 
-                    colors  = ["red", "green", "yellow", "blue", "magenta", "orangered"],
-                    mycolor = colors[Math.floor(Math.random() * colors.length)];
+                var id      = touch.identifier; // Give the touch event an identifier
               
-                lines[id] = { x     : this.pageX - offset.left, 
-                              y     : this.pageY - offset.top, 
-                              color : mycolor
-                           };
+                lines[id] = { x     : this.pageX - offset.left, // Determine it's position on the canvas
+                              y     : this.pageY - offset.top
+                            };
             });
 
             event.preventDefault();
         },
 
-        draw: function(event) {
-            var e = event, hmm = {};
+        move: function(event) {
+            var e = event, hmm = {}; // Record the event and declare an array (which was never used...)
 
             $.each(event.touches, function(i, touch) {
                 var id = touch.identifier,
-                    moveX = this.pageX - offset.left - lines[id].x,
+                    moveX = this.pageX - offset.left - lines[id].x, // Dynamically find the position of X,Y
                     moveY = this.pageY - offset.top - lines[id].y;
 
-                var ret = self.move(id, moveX, moveY);
+                var ret = self.draw(id, moveX, moveY);
                 lines[id].x = ret.x;
                 lines[id].y = ret.y;
             });
@@ -65,16 +68,57 @@ var CanvasDrawr = function(options) {
             event.preventDefault();
         },
 
-        move: function(i, changeX, changeY) {
-            ctxt.strokeStyle = lines[i].color;
+        draw: function(i, changeX, changeY) {
+            ctxt.strokeStyle = "black";
             ctxt.beginPath();
-            ctxt.moveTo(lines[i].x, lines[i].y);
+            if(is_move){
+                ctxt.moveTo(lines[i-1].x, lines[i-1].y);
+            } else {
+                ctxt.moveTo(lines[i].x, lines[i].y);
+            }
+            
 
             ctxt.lineTo(lines[i].x + changeX, lines[i].y + changeY);
             ctxt.stroke();
             ctxt.closePath();
 
             return { x: lines[i].x + changeX, y: lines[i].y + changeY };
+        },
+
+        mouse_startMove: function(event) {
+
+            lines[mouse_id] = {
+                x     : event.pageX - offset.left,
+                y     : event.pageY - offset.top
+            };
+            is_move = true;
+            mouse_id++;
+            event.preventDefault();
+        },
+
+        mouse_endMove: function(event) {
+            is_move = false;
+            event.preventDefault();
+        },
+
+        mouse_move: function(event) {
+
+            if (is_move) {
+                lines[mouse_id] = {
+                            x     : event.pageX - offset.left,
+                            y     : event.pageY - offset.top
+                };
+
+                var moveX = event.pageX - offset.left - lines[mouse_id].x,
+                    moveY = event.pageY - offset.top - lines[mouse_id].y;
+              
+                var ret = self.draw(mouse_id, moveX, moveY);
+                lines[mouse_id].x = ret.x;
+                lines[mouse_id].y = ret.y;
+                mouse_id++;
+            }
+            
+            event.preventDefault();
         }
     };
 
@@ -83,5 +127,5 @@ var CanvasDrawr = function(options) {
 
 
 $(function(){
-  var super_awesome_multitouch_drawing_canvas_thingy = new CanvasDrawr({id:"example", size: 15 }); 
+  var super_awesome_multitouch_drawing_canvas_thingy = new CanvasDrawr({id:"example", size: 10 });
 });
