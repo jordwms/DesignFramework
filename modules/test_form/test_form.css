@@ -109,6 +109,10 @@ canvas {
     iPad Portrait and Android HD landscape
     ========================================================================== */
 @media only screen and (min-width: 800px) {
+    pre {
+        margin: 5px 0;
+    }
+
     td.input {
         width: 40%;
     }
@@ -148,6 +152,7 @@ canvas {
     textarea {
         padding: 0 0.4em;
         font-size: 20px;
+        margin-bottom: 5px;
     }
 }
 

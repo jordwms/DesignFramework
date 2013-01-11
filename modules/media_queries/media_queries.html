@@ -1,0 +1,205 @@
+  <style type="text/css">
+  
+    p,#devices { font-weight: bold; }
+    p { color: rgb(217,103,0); font-size: 1.3em; }
+    #devices { color: rgb(34,50,172); }
+    #devices div { margin-bottom: .65em; }
+
+    /* =========================================================================
+    Default / iPhone Portrait
+
+    All default styles go here and will be applied to all devices with 
+    resolutions below 480px wide. All following media queries will be read 
+    after this, overriding necessary styles and applying them to their 
+    corresponding browser resolutions.
+    ========================================================================== */
+
+    .iPhone,
+    .QVGA,
+    .WQVGA,
+    .HVGA {
+      display: block;
+    }
+
+    .landscape,
+    .HVGALandscape,
+    .QVGAHD,
+    .WVGAHD,
+    .QVGAHDLandscape,
+    .extraHD,
+    .iPad,
+    .WVGAHDLandscape,
+    .WXGA,
+    .extraHDLandscape,
+    .iPadLandscape,
+    .desktop,
+    .WXGALandscape,
+    .wide {
+      display: none;
+    }
+
+    /*--------------------------------------------------------------------------
+    End of Default / iPhone Portrait
+
+    Devices with browser resolutions narrower than 480px do not read past this 
+    point, improving page render times, and minimizing bandwidth
+    ... if you're doing it right.
+    ---------------------------------------------------------------------------*/
+
+    /* =========================================================================
+    iPhone Landscape
+    ========================================================================== */
+    @media only screen and (min-width: 480px) {
+
+      .iPhone,
+      .QVGA,
+      .WQVGA,
+      .HVGA {
+        display: none;
+      }
+
+      .landscape,
+      .HVGALandscape,
+      .QVGAHD,
+      .WVGAHD {
+        display: block;
+      }
+
+    }
+
+    /* =========================================================================
+    Android/HD Mobile
+    ========================================================================== */
+    @media only screen and (min-width: 540px) {
+
+      .landscape,
+      .HVGALandscape,
+      .QVGAHD,
+      .WVGAHD {
+        display: none;
+      }
+
+      .extraHD,
+      .QVGAHDLandscape {
+        display: block;
+      }
+
+    }
+
+    /* =========================================================================
+    iPad Portrait/Android HD
+    ========================================================================== */
+    @media only screen and (min-width: 768px) {
+
+      .QVGAHDLandscape,
+      .extraHD {
+        display: none;
+      }
+
+      .iPad,
+      .WVGAHDLandscape,
+      .WXGA,
+      .extraHDLandscape {
+        display: block;
+      }
+
+    }
+
+    /* =========================================================================
+    iPad Landscape/Average Desktop
+    ========================================================================== */
+    @media only screen and (min-width: 1024px) {
+
+      .iPad,
+      .WVGAHDLandscape,
+      .WXGA,
+      .extraHDLandscape {
+        display: none;
+      }
+
+      .iPadLandscape,
+      .desktop {
+        display: block;
+      }
+
+    }
+
+    /* =========================================================================
+    Wide/HD Desktop
+    ========================================================================== */
+    @media only screen and (min-width: 1280px) {
+
+      .iPadLandscape,
+      .desktop {
+        display: none;
+      }
+
+      .WXGALandscape,
+      .wide {
+        display: block;
+      }
+
+    }
+
+  </style>
+  
+  <header>
+    <h1>MEDIA QUERIES</h1>
+  </header>
+
+  <p>Current Screen Width: <span id="current_screen_width"></span><span>px</span></p>
+
+  <div id="devices">
+    <!-- min-width: none -->
+    <div class="QVGA">Android QVGA Portrait/Landscape: 240px x 320px</div>
+    <div class="WQVGA">Android WQVGA Portrait/Landscape: 240px x 400px</div>
+    <div class="HVGA">Android HVGA Portrait: 320px</div>
+    <div class="iPhone">iPhone Portrait: 320px</div>
+
+    <!-- min-width: 480px -->
+    <div class="landscape">iPhone Landscape: 480px</div>
+    <div class="HVGALandscape">Android HVGA Landscape: 480px</div>
+    <div class="QVGAHD">Android QVGA HD Portrait: 480px</div>
+    <div class="WVGAHD">Android WVGA HD Portrait: 480px</div>
+
+    <!-- min-width: 540px -->
+    <div class="QVGAHDLandscape">Android QVGA HD Landscape: 640px</div>
+    <div class="extraHD">Android Extra HD Portrait: 640px</div>
+
+    <!-- min-width: 768px -->
+    <div class="iPad">iPad Portrait: 768px</div>
+    <div class="WVGAHDLandscape">Android WVGA HD Landscape: 800px</div>
+    <div class="WXGA">Android WXGA Portrait: 800px</div>
+    <div class="extraHDLandscape">Android Extra HD Landscape: 960px</div>
+
+    <!-- min-width: 1024px -->
+    <div class="iPadLandscape">iPad Landscape: 1024px</div>
+    <div class="desktop">Average Desktop: 1024px</div>
+
+    <!-- min-width: 1280px -->
+    <div class="WXGALandscape">Android WXGA Landscape: 1280px</div>
+    <div class="wide">Wide/HD Desktop: 1280px</div>
+
+  </div>
+
+  <a href="file:///Volumes/dev.vxray.us/docs+demos/index.html" alt="Back to Demos"><< Back to Demos</a>
+
+  <!-- JavaScript at the bottom for fast page loading -->
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+  <script type="text/javascript">
+
+    $(document).ready(function(){
+
+      //this shows the current screen width in px;
+      $('#current_screen_width').text( $(document).width() );
+
+      //this updates the #current_screen_width when the window is resized
+      $(window).bind('resize', function () {
+        $('#current_screen_width').text( $(document).width() );
+      });
+
+    });
+
+  </script>
