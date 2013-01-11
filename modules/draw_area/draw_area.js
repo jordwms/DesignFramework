@@ -124,8 +124,3 @@ var CanvasDrawr = function(options) {
 
     return self.init();
 };
-
-
-$(function(){
-  var super_awesome_multitouch_drawing_canvas_thingy = new CanvasDrawr({id:"example", size: 10 });
-});
