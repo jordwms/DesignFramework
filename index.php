@@ -93,7 +93,7 @@
 		//show list of modules :D
 		$module_list = array_map(
 			function($module){
-				return '<a href="?'.$module.'">'.$module.'</a>';
+				return '<a class="modules" href="?'.$module.'">'.$module.'</a>';
 			},
 			$modules
 		);
@@ -115,7 +115,7 @@
 	}
 
 	if( isset($module_list) ){
-		echo implode('</br>', $module_list);
+		echo implode('', $module_list);
 	}
 	if( isset($module_html) ){
 		require($module_html);
