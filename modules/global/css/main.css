@@ -197,9 +197,26 @@ textarea {
 }
 
 
+/* ==========================================================================
+   Personal Styles
+   ========================================================================== */
+
+.modules {
+    background-color: rgb(240,240,240);
+    padding: 0.5em;
+    display: block;
+    width: 175px;
+    text-align: center;
+    margin: 1em 0;
+    border: 1px solid #BBB;
+}
+.modules:hover {
+    background-color: rgb(227,238,255);
+}
+
 @media only screen and (min-width: 768px) {
 
-    body { margin: 0 1.3em; }
+    .modules { margin: 1em 1.3em; }
 
 }
 
