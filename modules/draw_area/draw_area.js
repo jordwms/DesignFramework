@@ -123,6 +123,7 @@ var CanvasDrawr = function(options) {
     };
 
     return self.init();
+<<<<<<< HEAD
 };
 
 
@@ -142,3 +143,6 @@ $('#btn').click(function() {
         dataType: 'json'
     });
 });
+=======
+};
+>>>>>>> master
