@@ -8,12 +8,13 @@ var CanvasDrawr = function(options) {
     var canvas = document.getElementById(options.id),
         ctxt = canvas.getContext("2d");
         
+    // These 3 lines keep the canvas from 'zooming', which ensures the line follows exactly where the points indicate
     canvas.style.width = '100%';
     canvas.width = canvas.offsetWidth;
     canvas.style.width = '';
 
     // set props from options, but the defaults are for the cool kids
-    ctxt.lineWidth = options.size || Math.ceil(Math.random() * 35);
+    ctxt.lineWidth = options.size;
     ctxt.lineCap = options.lineCap || "round";
     ctxt.pX = undefined;
     ctxt.pY = undefined;
@@ -53,7 +54,6 @@ var CanvasDrawr = function(options) {
         },
 
         move: function(event) {
-            var e = event, hmm = {}; // Record the event and declare an array (which was never used...)
 
             $.each(event.touches, function(i, touch) {
                 var id = touch.identifier,
@@ -88,7 +88,7 @@ var CanvasDrawr = function(options) {
         mouse_startMove: function(event) {
 
             lines[mouse_id] = {
-                x     : event.pageX - offset.left,
+                x     : event.pageX - offset.left, // Position on the canvas found as coords on the page minus the offset of the canvas
                 y     : event.pageY - offset.top
             };
             is_move = true;
