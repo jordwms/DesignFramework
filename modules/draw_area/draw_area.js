@@ -7,7 +7,7 @@ var CanvasDrawr = function(options) {
     // grab canvas element
     var canvas = document.getElementById(options.id),
         ctxt = canvas.getContext("2d");
-        
+
     // These 3 lines keep the canvas from 'zooming', which ensures the line follows exactly where the points indicate
     canvas.style.width = '100%';
     canvas.width = canvas.offsetWidth;
@@ -27,6 +27,11 @@ var CanvasDrawr = function(options) {
     var self = {
         //bind click events
         init: function() {
+
+
+            $(window).resize(function() {
+                offset = $(canvas).offset(); // I don't ~think~ this needs canvas.width= canvas.offsetWidth; making note of it here...
+            });
             //set pX and pY from first click
             
             canvas.addEventListener('touchstart', self.preMove, false);
