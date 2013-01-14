@@ -30,9 +30,6 @@ td.input,
 td.canvas_input {
     width: 70%;
 }
-td.canvas_input {
-
-}
 td.info {
     display: none;
     visibility: hidden;
@@ -80,10 +77,6 @@ textarea {
     font-size: 24px;
     line-height: 44px;
     vertical-align: middle;
-}
-
-canvas {
-    width: 90%;
 }
 
 .active {
