@@ -123,6 +123,27 @@ canvas {
         display: table-cell;
         visibility: visible;
     }
+    select,
+    input,
+    input[type="text"],
+    input[type="password"],
+    input[type="datetime"],
+    input[type="datetime-local"],
+    input[type="date"],
+    input[type="month"],
+    input[type="time"],
+    input[type="week"],
+    input[type="number"],
+    input[type="email"],
+    input[type="url"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="color"],
+    .uneditable-input,
+    textarea {
+        font-size: 18px;
+    }
+     
 }
 
 /* ==== primary styles =====================================================
@@ -132,7 +153,7 @@ canvas {
     fieldset {
         margin: 1em 12.5%;
     }
-        select,
+    select,
     input,
     input[type="text"],
     input[type="password"],
@@ -151,7 +172,7 @@ canvas {
     .uneditable-input,
     textarea {
         padding: 0 0.4em;
-        font-size: 20px;
+        font-size: 16px;
         margin-bottom: 5px;
     }
 }
