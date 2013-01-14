@@ -82,10 +82,6 @@ textarea {
     vertical-align: middle;
 }
 
-canvas {
-    width: 90%;
-}
-
 .active {
     background: rgb(227,238,255) !important;
 }
