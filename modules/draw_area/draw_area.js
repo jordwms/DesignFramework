@@ -123,26 +123,4 @@ var CanvasDrawr = function(options) {
     };
 
     return self.init();
-<<<<<<< HEAD
 };
-
-
-$(function(){
-  var super_awesome_multitouch_drawing_canvas_thingy = new CanvasDrawr({id:"example", size: 10 });
-});
-
-// Save canvas image as data url (png format by default) and show it
-$('#btn').click(function() {
-    var canvas = document.getElementById("example");
-    var john_hancock = canvas.toDataURL();
-
-    $.ajax({
-        type: 'POST',
-        url: '../save_signature.php',
-        data: { img: john_hancock },
-        dataType: 'json'
-    });
-});
-=======
-};
->>>>>>> master
