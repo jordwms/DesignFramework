@@ -34,8 +34,7 @@ var CanvasDrawr = function(options) {
 
             canvas.addEventListener('mousedown', self.mouse_startMove, false);
             canvas.addEventListener('mousemove', self.mouse_move, false);
-            canvas.addEventListener('mouseup',   self.mouse_endMove, false);
-            
+            window.addEventListener('mouseup',   self.mouse_endMove, false); // window so the line won't draw when mouse is off canvas
             
         },
 
