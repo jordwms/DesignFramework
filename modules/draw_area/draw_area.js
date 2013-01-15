@@ -5,7 +5,7 @@
            
 var CanvasDrawr = function(options) {
     // grab canvas element
-    var canvas = document.getElementById(options.id),
+    var canvas = $('canvas#'+options.id)[0]; // Retrieving the DOM element from the jQ object
         ctxt = canvas.getContext("2d");
 
     // These 3 lines keep the canvas from 'zooming', which ensures the line follows exactly where the points indicate
@@ -28,6 +28,11 @@ var CanvasDrawr = function(options) {
         //bind click events
         init: function() {
 
+            // Reset the canvas
+            $('button#'+options.id).click(function() {
+                ctxt.setTransform(1, 0, 0, 1, 0, 0);
+                ctxt.clearRect(0, 0, canvas.width, canvas.height);
+            });
 
             $(window).resize(function() {
                 offset = $(canvas).offset(); // I don't ~think~ this needs canvas.width= canvas.offsetWidth; making note of it here...
