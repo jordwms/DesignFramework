@@ -784,8 +784,7 @@
 
 @media (max-width: 767px) {
   body {
-    padding-right: 5px;
-    padding-left: 5px;
+    
   }
   .navbar-fixed-top,
   .navbar-fixed-bottom,
