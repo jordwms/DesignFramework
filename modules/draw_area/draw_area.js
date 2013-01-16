@@ -5,28 +5,21 @@
            
 var CanvasDrawr = function(options) {
     // grab canvas element
-    var canvas = $('canvas#'+options.id)[0]; // Retrieving the DOM element from the jQ object
+    var canvas = $('canvas#'+options.id)[0], // Retrieving the DOM element from the jQ object
         ctxt = canvas.getContext("2d");
 
-    // These 3 lines keep the canvas from 'zooming', which ensures the line follows exactly where the points indicate
-    canvas.style.width = '100%';
-    canvas.width = canvas.offsetWidth;
-    canvas.style.width = '';
-
-    // set props from options, but the defaults are for the cool kids
-    ctxt.lineWidth = options.size;
-    ctxt.lineCap = options.lineCap || "round";
     ctxt.pX = undefined;
     ctxt.pY = undefined;
 
     var is_move = false; // Tracks whether or not the user is click-and-dragging
     var mouse_id = 0; // This is the only way to keep track of mouse actions
     var lines = [];
-    var offset = $(canvas).offset();
+    var offset;
     
     var self = {
         //bind click events
         init: function() {
+            self.set();
 
             // Reset the canvas
             $('button#'+options.id).click(function() {
@@ -35,8 +28,29 @@ var CanvasDrawr = function(options) {
             });
 
             $(window).resize(function() {
-                offset = $(canvas).offset(); // I don't ~think~ this needs canvas.width= canvas.offsetWidth; making note of it here...
+                // self.set();
+
+                // Create a temporary canvas obj to cache the pixel data
+                var temp_cnvs = document.createElement('canvas');
+                var temp_cntx = temp_cnvs.getContext('2d');
+               
+                // Set it to the new width & height and draw the current canvas data into it
+                temp_cnvs.width = canvas.offsetWidth;
+                temp_cnvs.height = canvas.offsetHeight;
+                temp_cntx.drawImage(canvas, 0, 0);
+            
+                // Resize & clear the original canvas and copy back in the cached pixel data
+                canvas.width = canvas.offsetWidth;
+                canvas.height = canvas.offsetHeight;
+
+                ctxt.lineWidth = options.size;
+                ctxt.lineCap = options.lineCap || "round";
+
+                ctxt.drawImage(temp_cnvs, 0, 0);
+
+                offset = $(canvas).offset();
             });
+            
             //set pX and pY from first click
             
             canvas.addEventListener('touchstart', self.preMove, false);
@@ -46,6 +60,19 @@ var CanvasDrawr = function(options) {
             canvas.addEventListener('mousemove', self.mouse_move, false);
             window.addEventListener('mouseup',   self.mouse_endMove, false); // window so the line won't draw when mouse is off canvas
             
+        },
+
+        set: function() {
+
+            // These 3 lines keep the canvas from 'zooming', which ensures the line follows exactly where the points indicate
+            canvas.style.width = '100%';
+            canvas.width = canvas.offsetWidth;
+
+            ctxt.lineWidth = options.size;
+            ctxt.lineCap = options.lineCap || "round";
+
+
+            offset = $(canvas).offset(); // I don't ~think~ this needs canvas.width= canvas.offsetWidth; making note of it here...
         },
 
         preMove: function(event) {
