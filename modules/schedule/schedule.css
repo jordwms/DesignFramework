@@ -1,12 +1,13 @@
-.project{
+#filters {
+    margin: .25em 5px;
+}
+.project {
     border: 1px solid #BBB;
     margin: .25em 5px;
     padding: .5em 0;
     background-color: rgb(240,240,240);
 }
-.project:after,
-.new:after,
-.today:after {
+.project:after {
     clear: both;
     float: none;
     content: ".";
@@ -18,22 +19,26 @@
     background-color: rgb(227,238,255);
 }
 
-.date-holder{
+.date-holder {
     width: 4em;
     text-align: center;
     vertical-align: middle;
     float: left;
 }
-.date-holder .day{
+.date-holder .day {
     font-size: 28px;
-    line-height: 30px;
+    line-height: 28px;
 }
-.date-holder .month{
-    font-size: 14px;
+.date-holder .month {
+    font-size: 16px;
     line-height: 16px;
 }
+.date-holder .time {
+    font-size: 10px;
+    line-height: 10px;
+}
 
-.attributes{
+.attributes {
     float: left;
     padding-left: 1em;
     font-size: 0.7em;
@@ -45,7 +50,6 @@
 }
 .attributes span {
     font-weight: bold;
-    display: none;
 }
 
 /* ==== primary styles =====================================================
@@ -59,6 +63,7 @@
     Android/HD mobile styles
     ========================================================================== */
 @media only screen and (min-width: 540px) {
+    #filters,
     .project {
         margin: .25em 10%;
     }
@@ -87,11 +92,9 @@
     iPad landscape/Average Desktop
     ========================================================================== */
 @media only screen and (min-width: 1024px) {
+    #filters,
     .project {
         margin: .25em 12.5%;
-    }
-    .attributes span {
-        display: inline;
     }
 }
 
@@ -99,6 +102,7 @@
     Wide/HD Desktop Displays
     ========================================================================== */
 @media only screen and (min-width: 1280px) {
+    #filters,
     .project {
         margin: .25em 16%;
     }
