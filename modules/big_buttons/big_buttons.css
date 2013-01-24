@@ -1,0 +1,144 @@
+h2, h3 {
+  font-family: sans-serif;
+  font-weight: 500;
+}
+h2 {
+  font-size: 18px;
+  font-size: 1.1em;
+}
+h3 {
+  font-size: 1em;
+  border-bottom: 1px solid rgb(207,207,207);
+}
+
+nav li:hover ul {
+	display: inline-block;
+}
+nav a {
+	display: inline-block;
+	line-height: 100%;
+	font-weight: 300;
+	padding: 1em;
+	text-decoration: none;
+	vertical-align: middle;
+	color: rgb(255,255,255);
+}
+nav a:hover {
+	color: rgb(227,238,255);
+	text-shadow: rgb(68,64,61) 0 0 1px;
+}
+nav a:visited {
+	color: rgb(255,255,255);
+}
+
+nav.big-buttons>ul>li {
+	margin: 10px 0;
+	display: block;
+}
+nav.big-buttons #icon {
+	margin: 0 1em;
+	display: inline-block;
+}
+nav.big-buttons i {
+	height: 32px;
+	width: 32px;
+}
+nav.big-buttons a {
+	text-decoration: none;
+	padding: 0;
+	color: rgb(0,0,0);
+}
+nav.big-buttons #title {
+	display: inline-block;
+	text-align: left;
+	line-height: 32px;
+	font-size: 13px;
+	vertical-align: middle;
+}
+
+@media only screen and (min-width: 480px) {
+
+	nav.big-button #title {
+		font-size: 16px;
+	}
+
+}
+
+@media only screen and (min-width: 540px) {
+
+	nav.big-buttons {
+		padding: 0 10%;
+	}
+	nav.big-buttons #title {
+		font-size: 18px;
+	}
+	nav.big-button li {
+		margin: 18px 0;
+	}
+
+}
+
+@media only screen and (min-width: 800px) {
+
+	body { margin: 0 1.3em; }
+
+	nav.big-buttons {
+		padding: 0;
+		text-align: center;
+		overflow: visible;
+	}
+	nav.big-buttons ul {
+		list-style-type: none;
+		margin: 0;
+	}
+	nav.big-buttons>ul>li {
+		display: inline-block;
+		padding: 0.75em;
+		margin: 0 -2px;
+		width: 135px;
+		position: relative;
+	}
+	nav.big-buttons a {
+		padding: 0;
+		width: auto;
+	}
+	nav.big-buttons #icon {
+		margin: 0;
+	}
+	nav.big-buttons i {
+		height: 50px;
+		width: 50px;
+	}
+	nav.big-buttons #title {
+		font-size: 13px;
+		line-height: 1.5em;
+		height: 3em;
+		text-align: center;
+		width: 100%;
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+}
+
+@media only screen and (min-width: 1024px) {
+
+	nav.big-buttons #title {
+		font-size: 14px;
+	}
+
+}
+
+@media only screen and (min-width: 1280px) {
+
+	nav.big-buttons li {
+		width: 175px;
+	}
+	nav.big-buttons #title {
+		font-size: 16px;
+	}
+	ul.nav_categories ul {
+		left: 20px;
+	}
+
+}
