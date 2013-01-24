@@ -34,8 +34,9 @@
     line-height: 16px;
 }
 .date-holder .time {
-    font-size: 10px;
-    line-height: 10px;
+    font-size: 12px;
+    line-height: 12px;
+    color: rgb(56,95,200);
 }
 
 .attributes {
@@ -45,7 +46,7 @@
     line-height: 2.1em;
     border-left: 1px solid #BBB;
 }
-.attributes > div {
+.attributes div {
     padding-right: 1em;
 }
 .attributes span {
@@ -70,9 +71,9 @@
     .attributes {
         width: 80%;
     }
-    .attributes > div {
+    .attributes div {
         float: left;
-        width: 46%;
+        width: 47%;
     }
 }
 
@@ -83,7 +84,7 @@
     .attributes {
         width: 85%;
     }
-    .attributes > div {
+    .attributes div {
         width: 31%;
     }
 }
