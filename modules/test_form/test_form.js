@@ -17,4 +17,5 @@ $(document).ready(function() {
         $(this).find("input,textarea,select,button,canvas").focus().select();
         return(false);
     });
+    
 });

@@ -1,31 +1,27 @@
-fieldset{
+fieldset {
     background-color: rgb(240,240,240);
     border: 1px solid rgb(155,155,155);
     margin: 1em 0;
 }
-fieldset label{
+fieldset label {
     display: block;
 }
-fieldset legend{
+fieldset legend {
     display: inline;
     border: 0 none;
     width: auto;
 }
-body {
-    margin: 0;
-    padding: 0;
-}
 
-table {
+fieldset table {
     width: 100%;
 }
-tr {
+fieldset tr {
     border-bottom: 1px solid rgb(207,207,207);
 }
-tr:nth-last-of-type(1){
+fieldset tr:nth-last-of-type(1){
     border-bottom: inherit !important;
 }
-td {
+fieldset td {
     padding: 5px;
     vertical-align: middle;
 }
@@ -85,7 +81,7 @@ textarea {
 }
 
 canvas {
-    width: 100%;
+    width: 680px;
     height: 200px;
     background-color: #ffffff;
     border: 1px solid #cccccc;

@@ -2,62 +2,71 @@
     <!-- Text Input -->
     <fieldset>
         <legend>Text Inputs:</legend>
-        <table>
-            <tr>
-                <!-- First Cell contains input and label
-                     Should ALWAYS be visible -->
-                <td class="input">
-                    <label for="text1">Text1 Label</label>
-                    <input type="text" name="text1" autocomplete="off" autocorrect="off" autocapitalize="off" value="" placeholder="Text1" />
-                </td>
+        <!-- Bare minimum row contains only input and label -->
+        <div>
+            <label for="text1">Text1 Label</label>
+            <input type="text" name="text1" autocomplete="off" autocorrect="off" autocapitalize="off" value="" placeholder="Text1" data-provide="typeahead" data-source="[&quot;Apple&quot;,&quot;Boy&quot;,&quot;Crap&quot;,&quot;Dong&quot;,&quot;Elephant&quot;,&quot;Food&quot;,&quot;Giant&quot;,&quot;Hello&quot;,&quot;Igloo&quot;,&quot;Jordan&quot;,&quot;Kilometers&quot;,&quot;LOL&quot;]" />
+        </div>
+        <div> <!-- row with optional unit -->
+            <label for="text1">Text1 Label</label>
+            <input type="text" name="text1" autocomplete="off" autocorrect="off" autocapitalize="off" value="" placeholder="Text1" />
 
-                <!-- Second Cell contains an optional Unit
-                     Can be hidden on low resolutions? -->
-                <td class="unit">
-                    Unit
-                </td>
+            <!-- Second Cell contains an optional Unit
+                 Can be hidden on low resolutions? -->
+            <span class="unit">
+                Unit
+            </span>
+        </div>
+        <!-- row with optional action button -->
+        <div>
+            <label for="text1">Text1 Label</label>
+            <input type="text" name="text1" autocomplete="off" autocorrect="off" autocapitalize="off" value="" placeholder="Text2" />
 
-                <!-- Third Cell contains a description or additional info
-                     Can be hidden on low resolutions -->
-                <td class="info">
-                    Description or additional info</br>
-                    With multiple lines
-                </td>
+            <!-- Fourth Cell contains an action area and a "grab" area for touch screens
+                 Grab Area Should ALWAYS be visible, actions may be hidden -->
+            <span class="action">
+                <div id="delete" class="btn">X</div>
+            </span>
+        </div>
+        <!-- row with optional description -->
+        <div>
+            <!-- First Cell contains input and label
+                 Should ALWAYS be visible -->
+            <label for="text2">Text2 Label</label>
+            <input type="text" name="text2" autocomplete="off" autocorrect="off" autocapitalize="off" value="" placeholder="Text3" />
 
-                <!-- Fourth Cell contains an action area and a "grab" area for touch screens
-                     Grab Area Should ALWAYS be visible, actions may be hidden -->
-                <td class="action">
-                    <div id="delete" class="btn">X</div>
-                </td>
-            </tr>
-            <tr>
-                <!-- First Cell contains input and label
-                     Should ALWAYS be visible -->
-                <td class="input">
-                    <label for="text2">Text2 Label</label>
-                    <input type="text" name="text2" autocomplete="off" autocorrect="off" autocapitalize="off" value="" placeholder="Text2" />
-                </td>
+            <!-- Third Cell contains a description or additional info
+                 Can be hidden on low resolutions -->
+            <span class="info">
+                <pre>Description or additional info
+                With preformatted multiple lines</pre>
+            </span>
+        </div>
+         <!-- row with optional unit, description and action button -->
+        <div>
+            <!-- First Cell contains input and label
+                 Should ALWAYS be visible -->
+            <label for="text2">Text2 Label</label>
+            <input type="text" name="text2" autocomplete="off" autocorrect="off" autocapitalize="off" value="" placeholder="Text3" />
 
-                <!-- Second Cell contains an optional Unit
-                     Can be hidden on low resolutions? -->
-                <td class="unit">
-                    Unit
-                </td>
+            <!-- Second Cell contains an optional Unit
+                 Can be hidden on low resolutions? -->
+            <span class="unit">
+                Unit
+            </span>
 
-                <!-- Third Cell contains a description or additional info
-                     Can be hidden on low resolutions -->
-                <td class="info">
-                    <pre>Description or additional info
-                    With preformatted multiple lines</pre>
-                </td>
-                
-                <!-- Fourth Cell contains an action area and a "grab" area for touch screens
-                     Grab Area Should ALWAYS be visible, actions may be hidden -->
-                <td class="action">
-                    <div id="delete" class="btn">X</div>
-                </td>
-            </tr>
-        </table>
+            <!-- Third Cell contains a description or additional info
+                 Can be hidden on low resolutions -->
+            <span class="info">
+                <pre>Description or additional info<br>With preformatted multiple lines</pre>
+            </span>
+            
+            <!-- Fourth Cell contains an action area and a "grab" area for touch screens
+                 Grab Area Should ALWAYS be visible, actions may be hidden -->
+            <span class="action">
+                <div id="delete" class="btn">X</div>
+            </span>
+        </div>
     </fieldset>
 
     <!-- Numeric Input -->
