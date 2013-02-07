@@ -6,15 +6,11 @@ $(document).ready(function() {
      *  Activate form elements on focus
      */
     $("textarea,input,select,button,canvas").focus(function() {
-        $(this).closest("tr").addClass('active');
+        $(this).closest("div").addClass('active');
     });
 
     $("textarea,input,select,button,canvas").blur(function() {
-        $(this).closest("tr").removeClass('active');
+        $(this).closest("div").removeClass('active');
     });
 
-    $("tr").click(function() {
-        $(this).find("input,textarea,select,button,canvas").focus().select();
-        return(false);
-    });
 });

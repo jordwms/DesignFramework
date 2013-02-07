@@ -2,418 +2,403 @@
     <!-- Text Input -->
     <fieldset>
         <legend>Text Inputs:</legend>
-        <table>
-            <tr>
-                <!-- First Cell contains input and label
-                     Should ALWAYS be visible -->
-                <td class="input">
-                    <label for="text1">Text1 Label</label>
-                    <input type="text" name="text1" autocomplete="off" autocorrect="off" autocapitalize="off" value="" placeholder="Text1" data-provide="typeahead" data-source="[&quot;Apple&quot;,&quot;Boy&quot;,&quot;Crap&quot;,&quot;Dong&quot;,&quot;Elephant&quot;,&quot;Food&quot;,&quot;Giant&quot;,&quot;Hello&quot;,&quot;Igloo&quot;,&quot;Jordan&quot;,&quot;Kilometers&quot;,&quot;LOL&quot;]" />
-                </td>
+        <!-- Bare minimum row contains only input and label -->
+        <div>
+            <span class="input">
+                <label for="text1">Text1 Label</label>
+                <input type="text" name="text1" autocomplete="off" autocorrect="off" autocapitalize="off" value="" placeholder="Text1" data-provide="typeahead" data-source="[&quot;Apple&quot;,&quot;Boy&quot;,&quot;Crap&quot;,&quot;Dong&quot;,&quot;Elephant&quot;,&quot;Food&quot;,&quot;Giant&quot;,&quot;Hello&quot;,&quot;Igloo&quot;,&quot;Jordan&quot;,&quot;Kilometers&quot;,&quot;LOL&quot;]" />
+            </span>
+        </div>
+        <!-- row with optional unit -->
+        <div>
+            <span class="input">
+                <label for="text1">Text1 Label</label>
+                <input type="text" name="text1" autocomplete="off" autocorrect="off" autocapitalize="off" value="" placeholder="Text1" />
+            </span>
 
-                <!-- Second Cell contains an optional Unit
-                     Can be hidden on low resolutions? -->
-                <td class="unit">
-                    Unit
-                </td>
+            <!-- Second Cell contains an optional Unit
+                 Can be hidden on low resolutions? -->
+            <span class="unit">
+                Unit
+            </span>
+        </div>
+        <!-- row with optional action button -->
+        <div>
+            <span class="input">
+                <label for="text1">Text1 Label</label>
+                <input type="text" name="text1" autocomplete="off" autocorrect="off" autocapitalize="off" value="" placeholder="Text2" />
+            </span>
 
-                <!-- Third Cell contains a description or additional info
-                     Can be hidden on low resolutions -->
-                <td class="info">
-                    Description or additional info</br>
-                    With multiple lines
-                </td>
+            <!-- Fourth Cell contains an action area and a "grab" area for touch screens
+                 Grab Area Should ALWAYS be visible, actions may be hidden -->
+            <span class="action">
+                <div id="delete" class="btn">X</div>
+            </span>
+        </div>
+        <!-- row with optional description -->
+        <div>
+            <!-- First Cell contains input and label
+                 Should ALWAYS be visible -->
+            <span class="input">
+                <label for="text2">Text2 Label</label>
+                <input type="text" name="text2" autocomplete="off" autocorrect="off" autocapitalize="off" value="" placeholder="Text3" />
+            </span>
 
-                <!-- Fourth Cell contains an action area and a "grab" area for touch screens
-                     Grab Area Should ALWAYS be visible, actions may be hidden -->
-                <td class="action">
-                    <div id="delete" class="btn">X</div>
-                </td>
-            </tr>
-            <tr>
-                <!-- First Cell contains input and label
-                     Should ALWAYS be visible -->
-                <td class="input">
-                    <label for="text2">Text2 Label</label>
-                    <input type="text" name="text2" autocomplete="off" autocorrect="off" autocapitalize="off" value="" placeholder="Text2" />
-                </td>
+            <!-- Third Cell contains a description or additional info
+                 Can be hidden on low resolutions -->
+            <span class="info">
+                <pre>Description or additional info
+                With preformatted multiple lines</pre>
+            </span>
+        </div>
+         <!-- row with optional unit, description and action button -->
+        <div>
+            <!-- First Cell contains input and label
+                 Should ALWAYS be visible -->
+            <span class="input">
+                <label for="text2">Text2 Label</label>
+                <input type="text" name="text2" autocomplete="off" autocorrect="off" autocapitalize="off" value="" placeholder="Text3" />
+            </span>
 
-                <!-- Second Cell contains an optional Unit
-                     Can be hidden on low resolutions? -->
-                <td class="unit">
-                    Unit
-                </td>
+            <!-- Second Cell contains an optional Unit
+                 Can be hidden on low resolutions? -->
+            <span class="unit">
+                Unit
+            </span>
 
-                <!-- Third Cell contains a description or additional info
-                     Can be hidden on low resolutions -->
-                <td class="info">
-                    <pre>Description or additional info
-                    With preformatted multiple lines</pre>
-                </td>
-                
-                <!-- Fourth Cell contains an action area and a "grab" area for touch screens
-                     Grab Area Should ALWAYS be visible, actions may be hidden -->
-                <td class="action">
-                    <div id="delete" class="btn">X</div>
-                </td>
-            </tr>
-        </table>
+            <!-- Third Cell contains a description or additional info
+                 Can be hidden on low resolutions -->
+            <span class="info">
+                <pre>Description or additional info<br>With preformatted multiple lines</pre>
+            </span>
+            
+            <!-- Fourth Cell contains an action area and a "grab" area for touch screens
+                 Grab Area Should ALWAYS be visible, actions may be hidden -->
+            <span class="action">
+                <div id="delete" class="btn">X</div>
+            </span>
+        </div>
     </fieldset>
 
     <!-- Numeric Input -->
     <fieldset>
         <legend>Numeric Inputs:</legend>
-        <table>
-            <tr>
-                <!-- First Cell contains input and label
+        <div>
+            <!-- First Cell contains input and label
                      Should ALWAYS be visible -->
-                <td class="input">
-                    <label for="numeric1">Numeric Label</label>
-                    <input type="number" name="numeric1"  min="0" step="1" autocomplete="off" autocorrect="off" autocapitalize="off" value="" placeholder="numeric1" />
-                </td>
+            <span class="input">
+                <label for="numeric1">Numeric Label</label>
+                <input type="number" name="numeric1"  min="0" step="1" autocomplete="off" autocorrect="off" autocapitalize="off" value="" placeholder="numeric1" />
+            </span>
 
-                <!-- Second Cell contains an optional Unit
+            <!-- Second Cell contains an optional Unit
                      Can be hidden on low resolutions? -->
-                <td class="unit">
-                    Unit
-                </td>
+            <span class="unit">
+                Unit
+            </span>
 
-                <!-- Third Cell contains a description or additional info
-                     Can be hidden on low resolutions -->
-                <td class="info">
-                    Description or additional info</br>
-                    With multiple lines
-                </td>
-                
-                <!-- Fourth Cell contains an action area and a "grab" area for touch screens
-                     Grab Area Should ALWAYS be visible, actions may be hidden -->
-                <td class="action">
-                    <div id="delete" class="btn">X</div>
-                </td>
-            </tr>
-        </table>
+            <!-- Third Cell contains a description or additional info
+                 Can be hidden on low resolutions -->
+            <span class="info">
+                Description or additional info</br>
+                With multiple lines
+            </span>
+            
+            <!-- Fourth Cell contains an action area and a "grab" area for touch screens
+                 Grab Area Should ALWAYS be visible, actions may be hidden -->
+            <span class="action">
+                <div id="delete" class="btn">X</div>
+            </span>
+        </div>
     </fieldset>
 
     <!-- Multi Numeric Input -->
     <fieldset>
         <legend>Multi Numeric Inputs:</legend>
-        <table>
-            <tr>
-                <!-- First Cell contains input and label
+        <div>
+            <!-- First Cell contains input and label
                      Should ALWAYS be visible -->
-                <td class="input">
-                    <span>
-                        <label for="multiNumericA">Multi Numeric A Label</label>
-                        <input type="number" name="multiNumericA"  min="0" step="1" autocomplete="off" autocorrect="off" autocapitalize="off" value="" placeholder="multiNumericA" />
-                    </span>
-                    <span>
-                        <label for="multiNumericB">Multi Numeric B Label<label>
-                        <input type="number" name="multiNumericB"  min="0" step="1" autocomplete="off" autocorrect="off" autocapitalize="off" value="" placeholder="multiNumericB" />
-                    </span>
-                </td>
+            <span class="input">
+                <label for="multiNumericA">Multi Numeric A Label</label>
+                <input type="number" name="multiNumericA"  min="0" step="1" autocomplete="off" autocorrect="off" autocapitalize="off" value="" placeholder="multiNumericA" />
 
-                <!-- Second Cell contains an optional Unit
+                <label for="multiNumericB">Multi Numeric B Label<label>
+                <input type="number" name="multiNumericB"  min="0" step="1" autocomplete="off" autocorrect="off" autocapitalize="off" value="" placeholder="multiNumericB" />
+            </span>
+
+            <!-- Second Cell contains an optional Unit
                      Can be hidden on low resolutions? -->
-                <td class="unit">
-                    Unit
-                </td>
+            <span class="unit">
+                Unit
+            </span>
 
-                <!-- Third Cell contains a description or additional info
-                     Can be hidden on low resolutions -->
-                <td class="info">
-                    Description or additional info</br>
-                    With multiple lines
-                </td>
-                
-                <!-- Fourth Cell contains an action area and a "grab" area for touch screens
-                     Grab Area Should ALWAYS be visible, actions may be hidden -->
-                <td class="action">
-                    <div id="delete" class="btn">X</div>
-                </td>
-            </tr>
-        </table>
+            <!-- Third Cell contains a description or additional info
+                 Can be hidden on low resolutions -->
+            <span class="info">
+                Description or additional info</br>
+                With multiple lines
+            </span>
+            
+            <!-- Fourth Cell contains an action area and a "grab" area for touch screens
+                 Grab Area Should ALWAYS be visible, actions may be hidden -->
+            <span class="action">
+                <div id="delete" class="btn">X</div>
+            </span>
+        </div>
     </fieldset>
 
     <!-- Date Input -->
     <fieldset>
         <legend>Date Inputs:</legend>
-        <table>
-            <tr>
-                <!-- First Cell contains input and label
+        <div>
+            <!-- First Cell contains input and label
                      Should ALWAYS be visible -->
-                <td class="input">
-                    <label for="date1">Text2 Label</label>
-                    <input type="date" name="date1" autocomplete="off" autocorrect="off" autocapitalize="off" value="2012-01-01" />
-                </td>
+            <span class="input">
+                <label for="date1">Date Label</label>
+                <input type="date" name="date1" autocomplete="off" autocorrect="off" autocapitalize="off" value="2012-01-01" />
+            </span>
 
-                <!-- Second Cell contains an optional Unit
+            <!-- Second Cell contains an optional Unit
                      Can be hidden on low resolutions? -->
-                <td class="unit">
-                    Unit
-                </td>
+            <span class="unit">
+                Unit
+            </span>
 
-                <!-- Third Cell contains a description or additional info
-                     Can be hidden on low resolutions -->
-                <td class="info">
-                    Description or additional info</br>
-                    With multiple lines
-                </td>
-                
-                <!-- Fourth Cell contains an action area and a "grab" area for touch screens
-                     Grab Area Should ALWAYS be visible, actions may be hidden -->
-                <td class="action">
-                    <div id="delete" class="btn">X</div>
-                </td>
-            </tr>
-        </table>
+            <!-- Third Cell contains a description or additional info
+                 Can be hidden on low resolutions -->
+            <span class="info">
+                Description or additional info</br>
+                With multiple lines
+            </span>
+            
+            <!-- Fourth Cell contains an action area and a "grab" area for touch screens
+                 Grab Area Should ALWAYS be visible, actions may be hidden -->
+            <span class="action">
+                <div id="delete" class="btn">X</div>
+            </span>
+        </div>
     </fieldset>
 
     <!-- Textarea Input -->
     <fieldset>
         <legend>Textarea Inputs:</legend>
-        <table>
-            <tr>
-                <!-- First Cell contains input and label
+        <div>
+            <!-- First Cell contains input and label
                      Should ALWAYS be visible -->
-                <td class="input">
-                    <label for="textarea1">Text2 Label</label>
-                    <textarea name="textarea1" rows="3" autocomplete="off" autocorrect="off" autocapitalize="off" value="" placeholder="textarea1"></textarea>
-                </td>
+            <span class="input">
+                <label for="textarea1">Textarea Label</label>
+                <textarea name="textarea1" rows="3" autocomplete="off" autocorrect="off" autocapitalize="off" value="" placeholder="textarea1"></textarea>
+            </span>
 
-                <!-- Second Cell contains an optional Unit
+            <!-- Second Cell contains an optional Unit
                      Can be hidden on low resolutions? -->
-                <td class="unit">
-                    Unit
-                </td>
+            <span class="unit">
+                Unit
+            </span>
 
-                <!-- Third Cell contains a description or additional info
-                     Can be hidden on low resolutions -->
-                <td class="info">
-                    Description or additional info</br>
-                    With multiple lines
-                </td>
-                
-                <!-- Fourth Cell contains an action area and a "grab" area for touch screens
-                     Grab Area Should ALWAYS be visible, actions may be hidden -->
-                <td class="action">
-                    <div id="delete" class="btn icon-cog"></div>
-                </td>
-            </tr>
-        </table>
+            <!-- Third Cell contains a description or additional info
+                 Can be hidden on low resolutions -->
+            <span class="info">
+                Description or additional info</br>
+                With multiple lines
+            </span>
+            
+            <!-- Fourth Cell contains an action area and a "grab" area for touch screens
+                 Grab Area Should ALWAYS be visible, actions may be hidden -->
+            <span class="action">
+                <div id="delete" class="btn">X</div>
+            </span>
+        </div>
     </fieldset>
 
     <!-- Button Input -->
     <fieldset>
-        <legend>Button Inputs:</legend>
-        <table>
-            <tr>
-                <!-- First Cell contains input and label
+        <legend>Button Input:</legend>
+        <div>
+            <!-- First Cell contains input and label
                      Should ALWAYS be visible -->
-                <td class="input">
-                    <label for="button">Button Label</label>
-                    <button name="button" type="button" class="btn btn-primary"/>Button</button>
-                </td>
+            <span class="input">
+                <label for="buttonA">Button Label</label>
+                <button name="buttonA" type="button" class="btn btn-primary"/>ButtonA</button>
+            </span>
 
-                <!-- Second Cell contains an optional Unit
+            <!-- Second Cell contains an optional Unit
                      Can be hidden on low resolutions? -->
-                <td class="unit">
-                    Unit
-                </td>
+            <span class="unit">
+                Unit
+            </span>
 
-                <!-- Third Cell contains a description or additional info
-                     Can be hidden on low resolutions -->
-                <td class="info">
-                    Description or additional info</br>
-                    With multiple lines
-                </td>
-                
-                <!-- Fourth Cell contains an action area and a "grab" area for touch screens
-                     Grab Area Should ALWAYS be visible, actions may be hidden -->
-                <td class="action">
-                    <a href="#" class="btn"><i class="icon-cog"></i></a>
-                </td>
-            </tr>
-        </table>
+            <!-- Third Cell contains a description or additional info
+                 Can be hidden on low resolutions -->
+            <span class="info">
+                Description or additional info</br>
+                With multiple lines
+            </span>
+            
+            <!-- Fourth Cell contains an action area and a "grab" area for touch screens
+                 Grab Area Should ALWAYS be visible, actions may be hidden -->
+            <span class="action">
+                <div id="delete" class="btn">X</div>
+            </span>
+        </div>
     </fieldset>
 
     <!-- Multi Button Input -->
     <fieldset>
-        <legend>Button Inputs:</legend>
-        <table>
-            <tr>
-                <!-- First Cell contains input and label
+        <legend>Multi Button Inputs:</legend>
+        <div>
+            <!-- First Cell contains input and label
                      Should ALWAYS be visible -->
-                <td class="input">
-                    <span>
-                        <label for="buttonA">ButtonA Label</label>
-                        <button name="buttonA" type="button" class="btn btn-primary"/>ButtonA</button>
-                    </span>
-                    <span>
-                        <label for="buttonB">ButtonB Label</label>
-                        <button name="buttonB" type="button" class="btn btn-primary"/>ButtonB</button>
-                    </span>
-                </td>
+            <span class="input">
+                <label for="buttonA">ButtonA Label</label>
+                <button name="buttonA" type="button" class="btn btn-primary"/>ButtonA</button>
 
-                <!-- Second Cell contains an optional Unit
+                <label for="buttonB">ButtonB Label</label>
+                <button name="buttonB" type="button" class="btn btn-primary"/>ButtonB</button>
+            </span>
+
+            <!-- Second Cell contains an optional Unit
                      Can be hidden on low resolutions? -->
-                <td class="unit">
-                    Unit
-                </td>
+            <span class="unit">
+                Unit
+            </span>
 
-                <!-- Third Cell contains a description or additional info
-                     Can be hidden on low resolutions -->
-                <td class="info">
-                    Description or additional info</br>
-                    With multiple lines
-                </td>
-                
-                <!-- Fourth Cell contains an action area and a "grab" area for touch screens
-                     Grab Area Should ALWAYS be visible, actions may be hidden -->
-                <td class="action">
-                    <div id="delete" class="btn">X</div>
-                </td>
-            </tr>
-        </table>
+            <!-- Third Cell contains a description or additional info
+                 Can be hidden on low resolutions -->
+            <span class="info">
+                Description or additional info</br>
+                With multiple lines
+            </span>
+            
+            <!-- Fourth Cell contains an action area and a "grab" area for touch screens
+                 Grab Area Should ALWAYS be visible, actions may be hidden -->
+            <span class="action">
+                <div id="delete" class="btn">X</div>
+            </span>
+        </div>
     </fieldset>
 
     <!-- Checkbox Input -->
     <fieldset>
         <legend>Checkbox Inputs:</legend>
-        <table>
-            <tr>
-                <!-- First Cell contains input and label
+        <div>
+            <!-- First Cell contains input and label
                      Should ALWAYS be visible -->
-                <td class="input">
-                    <label for="checkbox">Checkbox Label</label>
-                    <input type="checkbox" name="checkbox"/>
-                </td>
+            <span class="input">
+                <label for="checkbox">Checkbox Label</label>
+                <input type="checkbox" name="checkbox"/>
+            </span>
 
-                <!-- Second Cell contains an optional Unit
+            <!-- Second Cell contains an optional Unit
                      Can be hidden on low resolutions? -->
-                <td class="unit">
-                    Unit
-                </td>
+            <span class="unit">
+                Unit
+            </span>
 
-                <!-- Third Cell contains a description or additional info
-                     Can be hidden on low resolutions -->
-                <td class="info">
-                    Description or additional info</br>
-                    With multiple lines
-                </td>
-                
-                <!-- Fourth Cell contains an action area and a "grab" area for touch screens
-                     Grab Area Should ALWAYS be visible, actions may be hidden -->
-                <td class="action">
-                    <div id="delete" class="btn">X</div>
-                </td>
-            </tr>
-        </table>
+            <!-- Third Cell contains a description or additional info
+                 Can be hidden on low resolutions -->
+            <span class="info">
+                Description or additional info</br>
+                With multiple lines
+            </span>
+            
+            <!-- Fourth Cell contains an action area and a "grab" area for touch screens
+                 Grab Area Should ALWAYS be visible, actions may be hidden -->
+            <span class="action">
+                <div id="delete" class="btn">X</div>
+            </span>
+        </div>
     </fieldset>
 
     <!-- Select Input -->
     <fieldset>
-        <legend>Select Input:</legend>
-        <table>
-            <tr>
-                <!-- First Cell contains input and label
+        <legend>Select Inputs:</legend>
+        <div>
+            <!-- First Cell contains input and label
                      Should ALWAYS be visible -->
-                <td class="input">
-                    <label for="select">Select Label</label>
-                    <select name="select">
-                        <optgroup label="Swedish Cars">
-                            <option value="volvo">Volvo</option>
-                            <option value="saab">Saab</option>
-                        </optgroup>
-                        <optgroup label="German Cars">
-                            <option value="mercedes">Mercedes</option>
-                            <option value="audi">Audi</option>
-                        </optgroup>
-                    </select>
-                </td>
+            <span class="input">
+                <label for="select">Select Label</label>
+                <select name="select">
+                    <optgroup label="Swedish Cars">
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                    </optgroup>
+                    <optgroup label="German Cars">
+                        <option value="mercedes">Mercedes</option>
+                        <option value="audi">Audi</option>
+                    </optgroup>
+                </select>
+            </span>
 
-                <!-- Second Cell contains an optional Unit
+            <!-- Second Cell contains an optional Unit
                      Can be hidden on low resolutions? -->
-                <td class="unit">
-                    Unit
-                </td>
+            <span class="unit">
+                Unit
+            </span>
 
-                <!-- Third Cell contains a description or additional info
-                     Can be hidden on low resolutions -->
-                <td class="info">
-                    Description or additional info</br>
-                    With multiple lines
-                </td>
-                
-                <!-- Fourth Cell contains an action area and a "grab" area for touch screens
-                     Grab Area Should ALWAYS be visible, actions may be hidden -->
-                <td class="action">
-                    <div id="delete" class="btn">X</div>
-                </td>
-            </tr>
-        </table>
+            <!-- Third Cell contains a description or additional info
+                 Can be hidden on low resolutions -->
+            <span class="info">
+                Description or additional info</br>
+                With multiple lines
+            </span>
+            
+            <!-- Fourth Cell contains an action area and a "grab" area for touch screens
+                 Grab Area Should ALWAYS be visible, actions may be hidden -->
+            <span class="action">
+                <div id="delete" class="btn">X</div>
+            </span>
+        </div>
     </fieldset>
 
     <!-- MultiSelect Input -->
     <fieldset>
-        <legend>MultiSelect Input:</legend>
-        <table>
-            <tr>
-                <!-- First Cell contains input and label
+        <legend>MultiSelect Inputs:</legend>
+        <div>
+            <!-- First Cell contains input and label
                      Should ALWAYS be visible -->
-                <td class="input">
-                    <label for="select">Select Label</label>
-                    <select name="select" multiple="multiple">
-                        <optgroup label="Swedish Cars">
-                            <option value="volvo">Volvo</option>
-                            <option value="saab">Saab</option>
-                        </optgroup>
-                        <optgroup label="German Cars">
-                            <option value="mercedes">Mercedes</option>
-                            <option value="audi">Audi</option>
-                        </optgroup>
-                    </select>
-                </td>
+            <span class="input">
+                <label for="select">Select Label</label>
+                <select name="select" multiple="multiple">
+                    <optgroup label="Swedish Cars">
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                    </optgroup>
+                    <optgroup label="German Cars">
+                        <option value="mercedes">Mercedes</option>
+                        <option value="audi">Audi</option>
+                    </optgroup>
+                </select>
+            </span>
 
-                <!-- Second Cell contains an optional Unit
+            <!-- Second Cell contains an optional Unit
                      Can be hidden on low resolutions? -->
-                <td class="unit">
-                    Unit
-                </td>
+            <span class="unit">
+                Unit
+            </span>
 
-                <!-- Third Cell contains a description or additional info
-                     Can be hidden on low resolutions -->
-                <td class="info">
-                    Description or additional info</br>
-                    With multiple lines
-                </td>
-                
-                <!-- Fourth Cell contains an action area and a "grab" area for touch screens
-                     Grab Area Should ALWAYS be visible, actions may be hidden -->
-                <td class="action">
-                    <div id="delete" class="btn">X</div>
-                </td>
-            </tr>
-        </table>
+            <!-- Third Cell contains a description or additional info
+                 Can be hidden on low resolutions -->
+            <span class="info">
+                Description or additional info</br>
+                With multiple lines
+            </span>
+            
+            <!-- Fourth Cell contains an action area and a "grab" area for touch screens
+                 Grab Area Should ALWAYS be visible, actions may be hidden -->
+            <span class="action">
+                <div id="delete" class="btn">X</div>
+            </span>
+        </div>
     </fieldset>
 
     <!-- Canvas Input -->
     <fieldset>
         <legend>Canvas Inputs:</legend>
-        <table>
-            <tr>
-                <!-- First Cell contains input and label
-                     Should ALWAYS be visible -->
-                <td class="canvas_input">
-                    <canvas id="signature" class="draw_area"></canvas>
-                </td>
-                
-                <!-- Fourth Cell contains an action area and a "grab" area for touch screens
-                     Grab Area Should ALWAYS be visible, actions may be hidden -->
-                <td class="action">
-                    <div id="clear" class="btn">X</div>
-                </td>
-            </tr>
-        </table>
+        <canvas id="signature" class="draw_area"></canvas>
+        <span class="action">
+            <div id="clear" class="btn">X</div>
+        </span>
     </fieldset>
 </form>
 

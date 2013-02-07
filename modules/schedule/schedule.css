@@ -1,12 +1,13 @@
-.project{
+#filters {
+    margin: .25em 5px;
+}
+.project {
     border: 1px solid #BBB;
     margin: .25em 5px;
     padding: .5em 0;
     background-color: rgb(240,240,240);
 }
-.project:after,
-.new:after,
-.today:after {
+.project:after {
     clear: both;
     float: none;
     content: ".";
@@ -18,34 +19,38 @@
     background-color: rgb(227,238,255);
 }
 
-.date-holder{
+.date-holder {
     width: 4em;
     text-align: center;
     vertical-align: middle;
     float: left;
 }
-.date-holder .day{
+.date-holder .day {
     font-size: 28px;
-    line-height: 30px;
+    line-height: 28px;
 }
-.date-holder .month{
-    font-size: 14px;
+.date-holder .month {
+    font-size: 16px;
     line-height: 16px;
 }
+.date-holder .time {
+    font-size: 12px;
+    line-height: 12px;
+    color: rgb(56,95,200);
+}
 
-.attributes{
+.attributes {
     float: left;
     padding-left: 1em;
     font-size: 0.7em;
     line-height: 2.1em;
     border-left: 1px solid #BBB;
 }
-.attributes > div {
+.attributes div {
     padding-right: 1em;
 }
 .attributes span {
     font-weight: bold;
-    display: none;
 }
 
 /* ==== primary styles =====================================================
@@ -59,15 +64,16 @@
     Android/HD mobile styles
     ========================================================================== */
 @media only screen and (min-width: 540px) {
+    #filters,
     .project {
         margin: .25em 10%;
     }
     .attributes {
         width: 80%;
     }
-    .attributes > div {
+    .attributes div {
         float: left;
-        width: 46%;
+        width: 47%;
     }
 }
 
@@ -78,7 +84,7 @@
     .attributes {
         width: 85%;
     }
-    .attributes > div {
+    .attributes div {
         width: 31%;
     }
 }
@@ -87,11 +93,9 @@
     iPad landscape/Average Desktop
     ========================================================================== */
 @media only screen and (min-width: 1024px) {
+    #filters,
     .project {
         margin: .25em 12.5%;
-    }
-    .attributes span {
-        display: inline;
     }
 }
 
@@ -99,6 +103,7 @@
     Wide/HD Desktop Displays
     ========================================================================== */
 @media only screen and (min-width: 1280px) {
+    #filters,
     .project {
         margin: .25em 16%;
     }
