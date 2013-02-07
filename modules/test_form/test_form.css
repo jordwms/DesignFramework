@@ -152,12 +152,34 @@ span.action {
     ========================================================================== */
 @media only screen and (min-width: 800px) {
     pre {
-        margin: 5px 0;
+        margin: 0 0 5px 0;
+        width: 100%;
+    }
+
+    span.input {
+        width: 50%;
+    }
+    span.unit {
+        width: 10%;
+        text-align: center;
     }
     span.info {
+        width: 32%;
         display: block;
         visibility: visible;
+        margin-top: 1.4em;
     }
+    span.action {
+        width: 50%;
+    }
+    span.input + span.info {
+        width: 40%;
+        margin-left: 5%;
+    }
+    span.info + span.action {
+        width: 8%;
+    }
+    
     select,
     input,
     input[type="text"],
@@ -188,6 +210,27 @@ span.action {
     fieldset {
         margin: 1em 12.5%;
     }
+
+    span.input {
+        width: 40%;
+    }
+    span.unit {
+        width: 12%;
+        text-align: center;
+    }
+    span.info {
+        width: 40%;
+        display: block;
+        visibility: visible;
+        margin-top: 1.4em;
+    }
+    span.action {
+        width: 60%;
+    }
+    span.input + span.info {
+        width: 50%;
+    }
+
     select,
     input,
     input[type="text"],
