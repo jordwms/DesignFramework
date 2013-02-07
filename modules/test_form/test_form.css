@@ -3,56 +3,31 @@ fieldset {
     border: 1px solid rgb(155,155,155);
     margin: 1em 0;
 }
-fieldset label {
-    display: block;
-}
 fieldset legend {
     display: inline;
     border: 0 none;
     width: auto;
 }
+fieldset label {
+    display: block;
+    margin: 0 0 0.2em 0;
+}
 
-fieldset table {
-    width: 100%;
+fieldset > div {
+    border-bottom: 1px solid #cccccc;
+    padding: 5px 5px 3px 5px;
 }
-fieldset tr {
-    border-bottom: 1px solid rgb(207,207,207);
-}
-fieldset tr:nth-last-of-type(1){
-    border-bottom: inherit !important;
-}
-fieldset td {
-    padding: 5px;
-    vertical-align: middle;
-}
-td.input {
-    width: 70%;
-}
-td.canvas_input {
-    width: 90%;
-}
-td.info {
-    display: none;
-    visibility: hidden;
-    font-size: 0.9em;
-}
-td.unit {
-    width: 50px;
-    text-align: left;
-    padding-top: 25px;
-    font-size: 0.9em;
-}
-td.action {
-    width: 50px;
-    text-align: right;
-}
-td.input span {
-    display: block;
-    margin-bottom: 5px;
-}
-td.input span:last-child {
-    display: block;
+fieldset > div:last-child {
+    border-bottom: none;
     margin-bottom: 0;
+}
+fieldset > div:after {
+    clear: both;
+    float: none;
+    content: ".";
+    height: 0;
+    visibility: hidden;
+    display: block;
 }
 
 select,
@@ -73,13 +48,18 @@ input[type="tel"],
 input[type="color"],
 .uneditable-input,
 textarea {
-    width: 90%;
     height: 44px;
     font-size: 24px;
     line-height: 44px;
-    vertical-align: middle;
+    width: 100%;
+    margin: 0 0 5px 0;
 }
-
+button {
+    margin: 3px 0;
+}
+button + label {
+    margin-top: 8px;
+}
 canvas {
     width: 680px;
     height: 200px;
@@ -97,6 +77,30 @@ canvas {
     -o-transition: border linear 0.2s, box-shadow linear 0.2s;
     transition: border linear 0.2s, box-shadow linear 0.2s;
 }
+div.btn {
+    font-size: 11px;
+    padding: 2px 8px;
+    font-weight: bold;
+}
+
+div > span {
+    float: left;
+}
+span.input {
+    width: 79%;
+}
+span.unit {
+    display: none;
+    visibility: hidden;
+}
+span.info {
+    display: none;
+    visibility: hidden;
+}
+span.action {
+    text-align: right;
+    width: 21%;
+}
 
 .active {
     background: rgb(227,238,255) !important;
@@ -107,14 +111,40 @@ canvas {
     iPhone Landscape
     ========================================================================== */
 @media only screen and (min-width: 480px) {
-    
+    span.input {
+        width: 70%;
+    }
+    span.unit {
+        display: block;
+        visibility: visible;
+        width: 13%;
+        text-align: right;
+        margin-top: 2.4em;
+    }
+    span.action {
+        width: 30%;
+    }
+    span.info + span.action {
+        width: 17%;
+    }
 }
 
 /* ==== primary styles =====================================================
     Android/HD mobile styles
     ========================================================================== */
 @media only screen and (min-width: 540px) {
-
+    span.input {
+        width: 75%;
+    }
+    span.unit {
+        width: 12%;
+    }
+    span.action {
+        width: 25%;
+    }
+    span.info + span.action {
+        width: 13%;
+    }
 }
 
 /* ==== primary styles =====================================================
@@ -124,12 +154,8 @@ canvas {
     pre {
         margin: 5px 0;
     }
-
-    td.input {
-        width: 40%;
-    }
-    td.info {
-        display: table-cell;
+    span.info {
+        display: block;
         visibility: visible;
     }
     select,
@@ -182,7 +208,6 @@ canvas {
     textarea {
         padding: 0 0.4em;
         font-size: 16px;
-        margin-bottom: 5px;
     }
     td.canvas_input {
         width: 95%;
