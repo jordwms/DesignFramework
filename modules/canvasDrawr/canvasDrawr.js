@@ -4,13 +4,13 @@
 * 2. Maintain an image on the canvas when canvas resizes
 * 3. Draw an pre-determined image to the canvas
 * 4. Clear the canvas
-* 5. Saves every time the user stops drawing
+* 5. Saves every time the user stops drawing (to a hidden field)
 *
 * In order to provide all these abilities, it is expected that the "id" parameter is used across
 *   several HTML tags as a class or id attribute identifier.
 * The following elements are expected to be on the HTML document:
-* 1. <canvas> (class attribute)
-* 2. <input type="button"> OR <button> (class)
+* 1. <canvas> (id attribute)
+* 2. <input type="button"> OR <button> (id)
 * 3. <input type="hidden"> (name)
 *
 * "name" is used on the hidden field for form submission in the POST array.
@@ -19,7 +19,7 @@
 */
 var canvasDrawr = function(options) {
     // Grab canvas element
-    var canvas = $('canvas.'+options.name)[0],
+    var canvas = $('canvas#'+options.id)[0],
         ctxt = canvas.getContext("2d");
 
     ctxt.pX = undefined;
@@ -37,24 +37,25 @@ var canvasDrawr = function(options) {
             // These 3 lines keep the canvas from 'zooming', which ensures the line follows exactly where the points indicate
             canvas.style.width = '100%';
             canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
 
             ctxt.lineWidth = options.size;
             ctxt.lineCap = options.lineCap || "round";
 
             offset = $(canvas).offset();
 
-            // Reset the canvas - the selector reacts to <input type="button" /> or <button>
-            $('button.'+options.name+', input[type=button].'+options.name).click(function() {
+            // Reset the canvas - the selector reacts to <input type="button" /> or <button>, or any tag with .btn and #options.id
+            $('button#'+options.id+', input[type=button]#'+options.id+', .btn#'+options.id).click(function() {
                 ctxt.setTransform(1, 0, 0, 1, 0, 0);
                 ctxt.clearRect(0, 0, canvas.width, canvas.height);
 
-                 $('input[name="'+options.name+'"]').val('');
+                 $('input[name="'+options.id+'"]').val('');
 
             });
 
             // Load signature if image is found in hidden field
             var img = new Image();
-            img.src = $('input[name="'+options.name+'"]').val();
+            img.src = $('input[name="'+options.id+'"]').val();
             
             img.onload = function() {
                 ctxt.drawImage(img, 0, 0);
@@ -145,7 +146,7 @@ var canvasDrawr = function(options) {
         
         // Write base 64 image to a hidden element so the image can be passed to PHP
         save: function(event) {
-            $('input[name="'+options.name+'"]').val( canvas.toDataURL() );
+            $('input[name="'+options.id+'"]').val( canvas.toDataURL() );
         },
 
         mouse_startMove: function(event) {
