@@ -16,6 +16,7 @@ fieldset label {
 fieldset > div {
     border-bottom: 1px solid #cccccc;
     padding: 5px 5px 3px 5px;
+    display: -webkit-flex;
 }
 fieldset > div:last-child {
     border-bottom: none;
@@ -151,7 +152,7 @@ span.action {
         width: 10%;
     }
     span.info {
-        width: 32%;
+        width: 350px;
         display: block;
         visibility: visible;
     }
