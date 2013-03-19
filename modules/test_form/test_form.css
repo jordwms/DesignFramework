@@ -16,7 +16,6 @@ fieldset label {
 fieldset > div {
     border-bottom: 1px solid #cccccc;
     padding: 5px 5px 3px 5px;
-    display: -webkit-flex;
 }
 fieldset > div:last-child {
     border-bottom: none;
@@ -63,8 +62,7 @@ fieldset button + label {
 }
 
 canvas {
-    width: 680px;
-    height: 200px;
+    width: 100%;
     background-color: #ffffff;
     border: 1px solid #cccccc;
     vertical-align: middle;
@@ -89,8 +87,7 @@ fieldset div > span {
     float: left;
 }
 span.input {
-    flex: 1;
-    width: 95%;
+    width: 82%;
 }
 span.unit {
     display: none;
@@ -102,7 +99,7 @@ span.info {
 }
 span.action {
     text-align: right;
-    width: 60px;
+    width: 18%;
 }
 
 .active {
@@ -115,14 +112,20 @@ span.action {
     ========================================================================== */
 @media only screen and (min-width: 480px) {
     span.input {
-        width: 97%;
+        width: 78%;
     }
     span.unit {
         display: block;
         visibility: visible;
-        width: 60px;
-        text-align: right;
+        width: 17%;
+        text-align: center;
         margin-top: 2.4em;
+    }
+    span.action {
+        width: 5%;
+    }
+    span.input + span.action {
+        width: 22%;
     }
 }
 
@@ -138,17 +141,29 @@ span.action {
     ========================================================================== */
 @media only screen and (min-width: 800px) {
     fieldset pre {
-        margin: 0 0 5px 10px;
+        margin: 0 0 5px 20px;
         width: 90%;
     }
     span.input {
-        width: 98%;
+        width: 50%;
+    }
+    span.unit {
+        width: 10%;
     }
     span.info {
-        width: 350px;
+        width: 32%;
         display: block;
         visibility: visible;
-        padding-left: 25px;
+    }
+    span.input + span.info {
+        width: 48%;
+        padding: 0 1%;
+    }
+    span.action {
+        width: 8%;
+    }
+    span.input + span.action {
+        width: 50%;
     }
     
     select,
@@ -179,7 +194,7 @@ span.action {
     ========================================================================== */
 @media only screen and (min-width: 1024px) {
     fieldset {
-        margin: 1em 12.5%;
+        margin: 1em 5%;
     }
 
     select,
@@ -202,9 +217,11 @@ span.action {
     textarea {
         padding: 0 0.4em;
         font-size: 16px;
+        line-height: 20px;
+        height: 30px;
     }
-    td.canvas_input {
-        width: 95%;
+    span.unit {
+        margin-top: 1.9em;
     }
     td.canvas_input {
         width: 95%;
