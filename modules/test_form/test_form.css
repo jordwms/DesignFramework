@@ -16,7 +16,6 @@ fieldset label {
 fieldset > div {
     border-bottom: 1px solid #cccccc;
     padding: 5px 5px 3px 5px;
-    display: -webkit-flex;
 }
 fieldset > div:last-child {
     border-bottom: none;
@@ -152,7 +151,7 @@ span.action {
         width: 10%;
     }
     span.info {
-        width: 350px;
+        width: 32%;
         display: block;
         visibility: visible;
     }
@@ -224,8 +223,8 @@ span.action {
     span.unit {
         margin-top: 1.9em;
     }
-    td.canvas_input {
-        width: 95%;
+    span.unit {
+        margin-top: 1.9em;
     }
 }
 
