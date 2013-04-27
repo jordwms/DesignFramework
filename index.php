@@ -12,7 +12,7 @@
 	 *	DIRECTORY CONSTANTS
 	 */
 	define('MODULES_DIR', './modules/');
-	define('GLOBAL_DIR', MODULES_DIR.'global/');
+	define('GLOBAL_DIR', './global/');
 
 	/*
 	 *	Special Character CONSTANTS
