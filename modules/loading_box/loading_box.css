@@ -1,0 +1,42 @@
+.loading_box{
+	visibility:visible;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -100px;
+	margin-top: -100px;
+	cursor:default;
+	border: 1px solid #9F9F9F;
+	background-color: #292929;
+	width:200px;
+	height:200px;
+	overflow: hidden;
+	
+	/*filter:alpha(opacity=75);
+	-moz-opacity:0.75;
+	-khtml-opacity: 0.75;
+	opacity: 0.75;*/
+	
+	/* these cover all the round edges bases for the incomplete CS3 spec for ffox, safari, chrome, and opera */
+	-o-border-radius: 100px;
+	-moz-border-radius: 100px;
+	-webkit-border-radius: 100px;
+	border-radius: 100px;
+	z-index:1000;
+}
+
+/* This css must be adjusted for diferent spinner image sizes and different font sizes */
+.loading_message {
+	position:absolute;
+	margin-top:-40px;
+	top:50%;
+	width:100%;
+	text-align:center;
+	vertical-align:middle;
+}
+.loading_text {
+	color: #EFEFEF;
+	font-size:13px;
+	margin: 5px;
+	font-weight:bold;
+}
