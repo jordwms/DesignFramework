@@ -27,12 +27,6 @@
 	define('GLOBAL_DIR', './global/');
 
 	/*
-	 *	Special Character CONSTANTS
-	 */
-	define('NL', "\n");
-
-
-	/*
 	 *	Global Module CSS Resources
 	 *	Begin by listing building a list of all css files in the modules/global/css/ directory
 	 *  The files are then built into <link rel="stylesheet"> tags
@@ -58,7 +52,7 @@
 		},
 		$css_includes
 	);
-	$css = implode(NL, $css);
+	$css = implode(PHP_EOL, $css);
 
 
 	/*
@@ -87,7 +81,7 @@
 		},
 		$js_includes
 	);
-	$js = implode(NL, $js);
+	$js = implode(PHP_EOL, $js);
 
 	/*
 	 *	Modules
@@ -127,7 +121,7 @@
 				if( strlen($file_name) - strpos($file_name, '.css') == 4 ){
 					$css .= '<link rel="stylesheet" href="'.$module_path.$file_name.'">';
 				}elseif( strlen($file_name) - strpos($file_name, '.js') == 3 ){
-					$js .= NL.'<script src="'.$module_path.$file_name.'"></script>';
+					$js .= PHP_EOL.'<script src="'.$module_path.$file_name.'"></script>';
 				}
 			}
 
@@ -147,7 +141,7 @@
 		//show list of modules :D
 		$module_list = array_map(
 			function($module){
-				return '<a class="modules" href="?'.$module.'">'.$module.'</a>';
+				return '<a class="modules" href="?'.$module.'">'.$module.'</a>'.PHP_EOL;
 			},
 			$modules
 		);
