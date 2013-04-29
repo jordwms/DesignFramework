@@ -150,9 +150,6 @@
 		$css .= '<link rel="stylesheet" href="'.MODULES_DIR.'module_list.css">';
 	}
 
-	$script_execution_end = microtime(true);
-	$execution_time = $script_execution_end - $script_execution_start;
-
 	// finally get they layout
 	// the layout has access to all variables here
 	// $html, $js, $css are the primary variables whcih contain the markup tags necessary to load all of the resources
