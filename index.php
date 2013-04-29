@@ -153,6 +153,7 @@
 		);
 
 		$html = implode('', $module_list);
+		$css .= '<link rel="stylesheet" href="'.MODULES_DIR.'module_list.css">';
 	}
 
 	$script_execution_end = microtime(true);
