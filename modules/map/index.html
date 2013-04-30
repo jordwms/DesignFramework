@@ -1,0 +1,47 @@
+<?php include_once('modules/loading_box/index.html') ?>
+
+<div class="map_container">
+	<div id="map" class="map"></div>
+	<div class="actions">
+		<div class="btn" id="show_action_container">></div>
+		<div class="btn">Action2</div>
+		<div class="btn">Action3</div>
+	</div>
+</div>
+
+<div class="action_container">
+	<div class="actions">
+		<div class="btn" id="show_map_container"><</div>
+		<div class="btn">ActionA2</div>
+		<div class="btn">ActionA3</div>
+	</div>
+	INfo
+</div>
+
+<script src="http://serverapi.arcgisonline.com/jsapi/arcgis/3.3compact"></script>
+<script>
+  dojo.require("esri.map");
+  
+  function init() {
+    var map = new esri.Map("map",{
+      basemap:"topo",
+      isScrollZoom: true,
+      center:[-105.27,40.015], //long, lat
+      zoom:13,
+      sliderStyle:"small"
+    });
+
+    //hide the loading box once we're loaded
+    $('.loading_box').addClass('hidden');
+    $('.actions .btn#show_action_container').click(function(){
+    	$('.map_container').hide();
+    	$('.action_container').show();
+    });
+    $('.actions .btn#show_map_container').click(function(){
+    	$('.map_container').show();
+    	$('.action_container').hide();
+    });
+  }
+
+  dojo.ready(init);
+</script>

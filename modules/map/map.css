@@ -1,0 +1,107 @@
+@import	'../loading_box/loading_box.css';
+
+body {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+}
+
+div[class*="container"]{
+	height: 100%;
+	width: 100%;
+}
+div.action_container{
+	display: none;
+	background-color: #DDD;
+}
+div.map{
+	height: 110%;
+	width: 100%;
+}
+
+div.actions{
+	width: 100%;
+	height: 54px;
+	background-color: #111;
+	position: absolute;
+	bottom: 0;
+	opacity: .81;
+}
+
+div.actions .btn{
+	height: 40px;
+	width: 56px;
+	padding: 2px 6px;
+	margin: 4px;
+	line-height: 40px;
+	vertical-align: middle;
+	text-align: center;
+}
+div.map_container div.actions .btn{
+	float: right;
+}
+div.actions_container div.actions .btn{
+	float: left;
+}
+
+/* Make the zoom in/out buttons larger */
+.esriSimpleSlider div {
+	width: 44px;
+	height: 44px;
+	line-height: 42px;
+}
+
+/* Hide powered by ESRI logo */
+.esriControlsBR{
+	display: none;
+	visibility: hidden;
+}
+
+@media only screen and (min-width: 460px) {
+	div.map_container div.actions{
+		width: 76px;
+		height: 100%;
+		right: 0;
+	}
+
+	div.action_container div.actions{
+		width: 76px;
+		height: 100%;
+		left: 0;
+	}
+
+	div.action_container {
+		padding-left: 76px;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+
+	div[class*="container"]{
+		float: left;
+		margin-left: 1%;
+	}
+
+	div[id*="container"]{
+		display: none;
+	}
+
+	div.map_container, div.map_container div.actions{
+		width: 64%;
+	}
+
+	div.action_container{
+		display: block;
+		visibility: visible;
+		margin-left: 0;
+		margin-bottom: 60px;
+		width: 34%;
+	}
+
+	div.actions{
+		width: 100%;
+		height: 54px;
+		bottom: 0;
+		right: inherit;
+	}
+}
