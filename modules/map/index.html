@@ -1,22 +1,80 @@
 <?php include_once('modules/loading_box/index.html') ?>
 
-<div class="map_container">
-	<div id="map" class="map"></div>
-	<div class="actions">
-		<div class="btn" id="show_action_container">></div>
-		<div class="btn">Action2</div>
-		<div class="btn">Action3</div>
-	</div>
-</div>
+<section class="map_container">
+    <div class="actions">
+        <div class="btn" id="show_action_container">&gt;</div>
+        <div class="btn">Action2</div>
+        <div class="btn">Action3</div>
+    </div>
+    <div id="map" class="map"></div>
+</section>
 
-<div class="action_container">
-	<div class="actions">
-		<div class="btn" id="show_map_container"><</div>
-		<div class="btn">ActionA2</div>
-		<div class="btn">ActionA3</div>
-	</div>
-	INfo
-</div>
+<section class="action_container">
+    <div class="actions">
+        <div class="btn" id="show_map_container">&lt;</div>
+        <div class="btn">ActionA2</div>
+    </div>
+    <div>
+        <form>
+            <fieldset>
+                <table>
+                    <tr>
+                        <td>
+                            <label><a href="#">Group</a></label>
+
+                            <input type="text" name="" autocomplete="off" autocorrect="off" autocapitalize="off" value="" placeholder="{4ddb9da0-a641-471d-a926-221a7a33b0ec}" />
+                        </td>
+                        <td>    
+                            <div id="edit-group" class="btn"> <i class="icon-asterisk"></i> </div>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+            <fieldset>
+                <table>
+                    <tr>
+                        <td>
+                            <label><a href="#">Section</a></label>
+
+                            <input type="text" name="" autocomplete="off" autocorrect="off" autocapitalize="off" value="" placeholder="{4ddb9da0-a641-471d-a926-221a7a33b0ec}" />
+                        </td>
+                        <td>    
+                            <div id="edit-group" class="btn"> <i class="icon-asterisk"></i> </div>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+            <fieldset>
+                <table>
+                    <tr>
+                        <td>
+                            <label><a href="#">Start of Flow</a></label>
+
+                            <input type="text" name="" autocomplete="off" autocorrect="off" autocapitalize="off" value="" placeholder="{4ddb9da0-a641-471d-a926-221a7a33b0ec}" />
+                        </td>
+                        <td>    
+                            <div id="edit-group" class="btn"> <i class="icon-asterisk"></i> </div>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+            <fieldset>
+                <table>
+                    <tr>
+                        <td>
+                            <label><a href="#">End of Flow</a></label>
+
+                            <input type="text" name="" autocomplete="off" autocorrect="off" autocapitalize="off" value="" placeholder="{4ddb9da0-a641-471d-a926-221a7a33b0ec}" />
+                        </td>
+                        <td>    
+                            <div id="edit-group" class="btn"> <i class="icon-asterisk"></i> </div>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+        </form>
+    </div>
+</section>
 
 <script src="http://serverapi.arcgisonline.com/jsapi/arcgis/3.3compact"></script>
 <script>
@@ -33,13 +91,15 @@
 
     //hide the loading box once we're loaded
     $('.loading_box').addClass('hidden');
+
+    //just an example of "flipping" between containers
     $('.actions .btn#show_action_container').click(function(){
-    	$('.map_container').hide();
-    	$('.action_container').show();
+        $('.map_container').hide();
+        $('.action_container').show();
     });
     $('.actions .btn#show_map_container').click(function(){
-    	$('.map_container').show();
-    	$('.action_container').hide();
+        $('.map_container').show();
+        $('.action_container').hide();
     });
   }
 

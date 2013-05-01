@@ -1,21 +1,35 @@
 @import	'../loading_box/loading_box.css';
 
+fieldset > table{
+	width: 100%;
+}
+fieldset > table td:last-child{
+	width: 50px;
+	vertical-align: bottom;
+	padding-left: 10px;
+}
+fieldset input[type="text"]{
+	width: 96%;
+	padding: 2%;
+	margin: 0;
+}
+
 body {
 	height: 100%;
 	width: 100%;
 	position: absolute;
 }
 
-div[class*="container"]{
+section[class*="container"]{
 	height: 100%;
 	width: 100%;
 }
-div.action_container{
+section.action_container{
 	display: none;
 	background-color: #DDD;
 }
 div.map{
-	height: 110%;
+	height: 100%;
 	width: 100%;
 }
 
@@ -23,12 +37,12 @@ div.actions{
 	width: 100%;
 	height: 54px;
 	background-color: #111;
-	position: absolute;
-	bottom: 0;
+	/*position: absolute;
+	bottom: 0;*/
 	opacity: .81;
 }
 
-div.actions .btn{
+.actions .btn{
 	height: 40px;
 	width: 56px;
 	padding: 2px 6px;
@@ -37,13 +51,18 @@ div.actions .btn{
 	vertical-align: middle;
 	text-align: center;
 }
+
+.map_container .actions .btn:first-child{
+	float: right;
+}
+/*
 div.map_container div.actions .btn{
 	float: right;
 }
 div.actions_container div.actions .btn{
 	float: left;
 }
-
+*/
 /* Make the zoom in/out buttons larger */
 .esriSimpleSlider div {
 	width: 44px;
@@ -51,13 +70,14 @@ div.actions_container div.actions .btn{
 	line-height: 42px;
 }
 
-/* Hide powered by ESRI logo */
+/* Hide "powered by ESRI" logo */
 .esriControlsBR{
 	display: none;
 	visibility: hidden;
 }
 
 @media only screen and (min-width: 460px) {
+	/*
 	div.map_container div.actions{
 		width: 76px;
 		height: 100%;
@@ -73,27 +93,31 @@ div.actions_container div.actions .btn{
 	div.action_container {
 		padding-left: 76px;
 	}
+	*/
 }
 
 @media only screen and (min-width: 1024px) {
 
-	div[class*="container"]{
+	body > section:first-child{
+		margin-left: 0;
+	}
+	section[class*="container"]{
 		float: left;
 		margin-left: 1%;
 	}
 
-	div[id*="container"]{
+	div[id*="container"].btn{
 		display: none;
 	}
 
-	div.map_container, div.map_container div.actions{
+	section.map_container{
 		width: 64%;
 	}
 
-	div.action_container{
+	section.action_container{
 		display: block;
 		visibility: visible;
-		margin-left: 0;
+		/* margin-left: 0; */
 		margin-bottom: 60px;
 		width: 34%;
 	}
