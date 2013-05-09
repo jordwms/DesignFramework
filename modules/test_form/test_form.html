@@ -2,181 +2,130 @@
     <!-- Text Input -->
     <fieldset>
         <legend>Text Inputs:</legend>
-        <!-- Bare minimum row contains only input and label -->
-        <div>
-            <span class="input">
-                <label for="text1">Text1 Label</label>
-                <input type="text" name="text1" autocomplete="off" autocorrect="off" autocapitalize="off" value="" placeholder="Text1" data-provide="typeahead" data-source="[&quot;Apple&quot;,&quot;Boy&quot;,&quot;Crap&quot;,&quot;Dong&quot;,&quot;Elephant&quot;,&quot;Food&quot;,&quot;Giant&quot;,&quot;Hello&quot;,&quot;Igloo&quot;,&quot;Jordan&quot;,&quot;Kilometers&quot;,&quot;LOL&quot;]" />
-            </span>
-        </div>
-        <!-- row with optional unit -->
-        <div>
-            <span class="input">
-                <label for="text1">Text1 Label</label>
-                <input type="text" name="text1" autocomplete="off" autocorrect="off" autocapitalize="off" value="" placeholder="Text1" />
-            </span>
-
-            <!-- Second Cell contains an optional Unit
-                 Can be hidden on low resolutions? -->
-            <span class="unit">
-                Unit
-            </span>
-        </div>
-        <!-- row with optional action button -->
-        <div>
-            <span class="input">
-                <label for="text1">Text1 Label</label>
-                <input type="text" name="text1" autocomplete="off" autocorrect="off" autocapitalize="off" value="" placeholder="Text2" />
-            </span>
-
-            <!-- Fourth Cell contains an action area and a "grab" area for touch screens
-                 Grab Area Should ALWAYS be visible, actions may be hidden -->
-            <span class="action">
-                <div id="delete" class="btn">X</div>
-            </span>
-        </div>
-        <!-- row with optional description -->
-        <div>
-            <!-- First Cell contains input and label
-                 Should ALWAYS be visible -->
-            <span class="input">
-                <label for="text2">Text2 Label</label>
-                <input type="text" name="text2" autocomplete="off" autocorrect="off" autocapitalize="off" value="" placeholder="Text3" />
-            </span>
-
-            <!-- Third Cell contains a description or additional info
-                 Can be hidden on low resolutions -->
-            <span class="info">
-                <pre>Description or additional info
+        
+        <table>
+            <!-- Bare minimum row contains only input and label -->
+            <th><label for="text1">Text1 Label</label></th>
+            <tr>
+                <td class="input">
+                    <input type="text" name="text1" autocomplete="off" autocorrect="off" autocapitalize="off" value="" placeholder="Text1" data-provide="typeahead" data-source="[&quot;Apple&quot;,&quot;Boy&quot;,&quot;Crap&quot;,&quot;Dong&quot;,&quot;Elephant&quot;,&quot;Food&quot;,&quot;Giant&quot;,&quot;Hello&quot;,&quot;Igloo&quot;,&quot;Jordan&quot;,&quot;Kilometers&quot;,&quot;LOL&quot;]" />
+                </td>
+            </tr>
+        </table>
+        <table>
+            <!-- row with optional unit -->
+            <th><label for="text1">Text1 Label</label></th>
+            <tr>
+                <td class="input">
+                    <input type="text" name="text1" autocomplete="off" autocorrect="off" autocapitalize="off" value="" placeholder="Text1" />
+                </td>
+                <td class="unit">Unit</td>
+            </tr>
+        </table>
+        <table>
+            <!-- row with optional action button -->
+            <th><label for="text1">Text1 Label</label></th>
+            <tr>
+                <td class="input">
+                    <input type="text" name="text1" autocomplete="off" autocorrect="off" autocapitalize="off" value="" placeholder="Text2" />
+                </td>
+                <td class="action"><div id="delete" class="btn">X</div></td>
+            </tr>
+        </table>
+        <table>
+            <!-- row with optional description -->
+            <th><label for="text2">Text2 Label</label></th>
+            <tr>
+                <td class="input">
+                    <input type="text" name="text2" autocomplete="off" autocorrect="off" autocapitalize="off" value="" placeholder="Text3" />
+                </td>
+                <td class="info">
+                    <pre>Description or additional info
                 With preformatted multiple lines</pre>
-            </span>
-        </div>
-         <!-- row with optional unit, description and action button -->
-        <div>
-            <!-- First Cell contains input and label
-                 Should ALWAYS be visible -->
-            <span class="input">
-                <label for="text2">Text2 Label</label>
-                <input type="text" name="text2" autocomplete="off" autocorrect="off" autocapitalize="off" value="" placeholder="Text3" />
-            </span>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <!-- row with optional unit, description and action button -->
+            <th><label for="text2">Text2 Label</label></th>
+            <tr>
+                <td class="input">
+                    <input type="text" name="text2" autocomplete="off" autocorrect="off" autocapitalize="off" value="" placeholder="Text3" />
+                </td>
+                <td class="unit">Unit</td>
+                <td class="info">
+                    <pre>Description or additional info<br>With preformatted multiple lines</pre>
+                </td>
+                <td class="action">
+                    <div id="delete" class="btn">X</div>
+                </td>
+            </tr>
+        </table>
 
-            <!-- Second Cell contains an optional Unit
-                 Can be hidden on low resolutions? -->
-            <span class="unit">
-                Unit
-            </span>
-
-            <!-- Third Cell contains a description or additional info
-                 Can be hidden on low resolutions -->
-            <span class="info">
-                <pre>Description or additional info<br>With preformatted multiple lines</pre>
-            </span>
-            
-            <!-- Fourth Cell contains an action area and a "grab" area for touch screens
-                 Grab Area Should ALWAYS be visible, actions may be hidden -->
-            <span class="action">
-                <div id="delete" class="btn">X</div>
-            </span>
-        </div>
     </fieldset>
+
 
     <!-- Numeric Input -->
     <fieldset>
         <legend>Numeric Inputs:</legend>
-        <div>
+
+        <table>
             <!-- First Cell contains input and label
                      Should ALWAYS be visible -->
-            <span class="input">
-                <label for="numeric1">Numeric Label</label>
-                <input type="number" name="numeric1"  min="0" step="1" autocomplete="off" autocorrect="off" autocapitalize="off" value="" placeholder="numeric1" />
-            </span>
+            <th><label for="numeric1">Numeric Label</label></th>
+            <tr>
+                <td class="input">
+                    <input type="number" name="numeric1"  min="0" step="1" autocomplete="off" autocorrect="off" autocapitalize="off" value="" placeholder="numeric1" />
+                </td>
+                <td class="unit">Unit</td>
+                <td class="info">Description or additional info</br>
+                With multiple lines</td>
+                <td class="action"><div id="delete" class="btn">X</div></td>
+            </tr>
+        </table>
 
-            <!-- Second Cell contains an optional Unit
-                     Can be hidden on low resolutions? -->
-            <span class="unit">
-                Unit
-            </span>
-
-            <!-- Third Cell contains a description or additional info
-                 Can be hidden on low resolutions -->
-            <span class="info">
-                Description or additional info</br>
-                With multiple lines
-            </span>
-            
-            <!-- Fourth Cell contains an action area and a "grab" area for touch screens
-                 Grab Area Should ALWAYS be visible, actions may be hidden -->
-            <span class="action">
-                <div id="delete" class="btn">X</div>
-            </span>
-        </div>
     </fieldset>
 
     <!-- Multi Numeric Input -->
     <fieldset>
         <legend>Multi Numeric Inputs:</legend>
-        <div>
-            <!-- First Cell contains input and label
-                     Should ALWAYS be visible -->
-            <span class="input">
-                <label for="multiNumericA">Multi Numeric A Label</label>
-                <input type="number" name="multiNumericA"  min="0" step="1" autocomplete="off" autocorrect="off" autocapitalize="off" value="" placeholder="multiNumericA" />
 
-                <label for="multiNumericB">Multi Numeric B Label<label>
-                <input type="number" name="multiNumericB"  min="0" step="1" autocomplete="off" autocorrect="off" autocapitalize="off" value="" placeholder="multiNumericB" />
-            </span>
+        <table>
+            <tr>
+                <td class="input">
+                    <label for="multiNumericA">Multi Numeric A Label</label>
+                    <input type="number" name="multiNumericA"  min="0" step="1" autocomplete="off" autocorrect="off" autocapitalize="off" value="" placeholder="multiNumericA" />
 
-            <!-- Second Cell contains an optional Unit
-                     Can be hidden on low resolutions? -->
-            <span class="unit">
-                Unit
-            </span>
+                    <label for="multiNumericB">Multi Numeric B Label<label>
+                    <input type="number" name="multiNumericB"  min="0" step="1" autocomplete="off" autocorrect="off" autocapitalize="off" value="" placeholder="multiNumericB" />
+                </td>
+                <td class="unit">Unit</td>
+                <td class="info">Description or additional info</br>
+                With multiple lines</td>
+                <td class="action"><div id="delete" class="btn">X</div></td>
+            </tr>
+        </table>
 
-            <!-- Third Cell contains a description or additional info
-                 Can be hidden on low resolutions -->
-            <span class="info">
-                Description or additional info</br>
-                With multiple lines
-            </span>
-            
-            <!-- Fourth Cell contains an action area and a "grab" area for touch screens
-                 Grab Area Should ALWAYS be visible, actions may be hidden -->
-            <span class="action">
-                <div id="delete" class="btn">X</div>
-            </span>
-        </div>
     </fieldset>
+
 
     <!-- Date Input -->
     <fieldset>
         <legend>Date Inputs:</legend>
-        <div>
-            <!-- First Cell contains input and label
-                     Should ALWAYS be visible -->
-            <span class="input">
-                <label for="date1">Date Label</label>
-                <input type="date" name="date1" autocomplete="off" autocorrect="off" autocapitalize="off" value="2012-01-01" />
-            </span>
 
-            <!-- Second Cell contains an optional Unit
-                     Can be hidden on low resolutions? -->
-            <span class="unit">
-                Unit
-            </span>
-
-            <!-- Third Cell contains a description or additional info
-                 Can be hidden on low resolutions -->
-            <span class="info">
-                Description or additional info</br>
-                With multiple lines
-            </span>
-            
-            <!-- Fourth Cell contains an action area and a "grab" area for touch screens
-                 Grab Area Should ALWAYS be visible, actions may be hidden -->
-            <span class="action">
-                <div id="delete" class="btn">X</div>
-            </span>
-        </div>
+        <table>
+            <th><label for="date1">Date Label</label></th>
+            <tr>
+                <td class="input">
+                    <input type="date" name="date1" autocomplete="off" autocorrect="off" autocapitalize="off" value="2012-01-01" />
+                </td>
+                <td class="unit">Unit</td>
+                <td class="info">Description or additional info</br>
+                With multiple lines</td>
+                <td class="action"><div id="delete" class="btn">X</div></td>
+            </tr>
+        </table>
+        
     </fieldset>
 
     <!-- Textarea Input -->
