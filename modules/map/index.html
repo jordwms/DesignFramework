@@ -96,6 +96,12 @@
       sliderStyle:"small"
     });
 
+    $(window).resize(function(){
+        if( $(window).width() > 1024 ){
+            $('[class*="container"]').show();
+        }
+    });
+
     //hide the loading box once we're loaded
     $('.loading_box').addClass('hidden');
 
