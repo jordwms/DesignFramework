@@ -1,18 +1,55 @@
 @import	'../loading_box/loading_box.css';
 
+/*
+ *  Using a table for layout of the form elements
+ */
 fieldset > table{
 	width: 100%;
 }
-fieldset > table td:last-child{
-	width: 50px;
+
+/*
+ *  2nd column is Unit
+ */
+fieldset > table td:nth-child(2){
+	width: 50px; /*acts as a min width, long words will push 1st column*/
+	vertical-align: bottom;
+	padding-left: .5em;
+	padding-bottom: .4%;
+}
+
+/*
+ *  3rd column is a description area
+ */
+fieldset > table td:nth-child(3){
+	width: 35%;
 	vertical-align: bottom;
 	padding-left: 10px;
 }
+
+/*
+ *  Last column is always action button
+ *  This can overrides any of the above styles 
+ *  regardless if this is actually the 2nd or 3rd column
+ */
+fieldset > table td:last-child{
+	width: 50px;
+	padding-top: 25px;  /*label line-height + bottom padding*/
+	vertical-align: bottom;
+	padding-left: 1em;
+	padding-bottom: 0;
+}
+fieldset > table td:last-child .btn{
+	width: 40px;
+	height: 100%;
+}
+
 fieldset input[type="text"]{
 	width: 96%;
 	padding: 2%;
 	margin: 0;
 }
+
+
 
 body {
 	height: 100%;
@@ -55,14 +92,7 @@ div.actions{
 .map_container .actions .btn:first-child{
 	float: right;
 }
-/*
-div.map_container div.actions .btn{
-	float: right;
-}
-div.actions_container div.actions .btn{
-	float: left;
-}
-*/
+
 /* Make the zoom in/out buttons larger */
 .esriSimpleSlider div {
 	width: 44px;
@@ -77,35 +107,16 @@ div.actions_container div.actions .btn{
 }
 
 @media only screen and (min-width: 460px) {
-	/*
-	div.map_container div.actions{
-		width: 76px;
-		height: 100%;
-		right: 0;
-	}
 
-	div.action_container div.actions{
-		width: 76px;
-		height: 100%;
-		left: 0;
-	}
-
-	div.action_container {
-		padding-left: 76px;
-	}
-	*/
 }
 
 @media only screen and (min-width: 1024px) {
 
-	body > section:first-child{
-		margin-left: 0;
-	}
 	section[class*="container"]{
 		float: left;
 		margin-left: 1%;
 	}
-
+	
 	div[id*="container"].btn{
 		display: none;
 	}
