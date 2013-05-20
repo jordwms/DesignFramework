@@ -1,10 +1,28 @@
 <?php include_once('modules/loading_box/index.html') ?>
 
+<script type="text/javascript">
+        var djConfig = {
+            parseOnLoad: true,
+            packages: [{
+            "name": "agsjs",
+            "location": 'http://gmaps-utility-gis.googlecode.com/svn/tags/agsjs/2.04/xbuild/agsjs' // for xdomain load
+            }]
+        };
+</script>
+
+<script src="http://serverapi.arcgisonline.com/jsapi/arcgis/3.4/"></script>
+<!--<script src="http://serverapi.arcgisonline.com/jsapi/arcgis/3.3compact"></script> no identify tasks-->
+<script src="modules/map/config.js" type="text/javascript"></script>
+<script src="modules/map/init.js" type="text/javascript"></script>
+<script src="modules/map/interface.js" type="text/javascript"></script>
+
 <section class="map_container">
     <div class="actions">
         <div class="btn" id="show_action_container">&gt;</div>
-        <div class="btn">Action2</div>
-        <div class="btn">Action3</div>
+        <div id="identify" class="btn" onclick="activateTool(this.id)">Info</div>
+        <div id="pan" class="btn" onclick="activateTool(this.id)">Pan</div>
+        <div id="leakAdd" class="btn" onclick="activateTool(this.id)">+Leak</div>
+        <div id="clear" class="btn" onclick="activateTool(this.id)">Clear</div>
     </div>
     <div id="map" class="map"></div>
 </section>
@@ -83,38 +101,14 @@
     </form>
 </section>
 
-<script src="http://serverapi.arcgisonline.com/jsapi/arcgis/3.3compact"></script>
 <script>
   dojo.require("esri.map");
-  
-  function init() {
-    var map = new esri.Map("map",{
-      basemap:"topo",
-      isScrollZoom: true,
-      center:[-105.27,40.015], //long, lat
-      zoom:13,
-      sliderStyle:"small"
-    });
-
-    $(window).resize(function(){
-        if( $(window).width() > 1024 ){
-            $('[class*="container"]').show();
-        }
-    });
-
-    //hide the loading box once we're loaded
-    $('.loading_box').addClass('hidden');
-
-    //just an example of "flipping" between containers
-    $('.actions .btn#show_action_container').click(function(){
-        $('.map_container').hide();
-        $('.action_container').show();
-    });
-    $('.actions .btn#show_map_container').click(function(){
-        $('.map_container').show();
-        $('.action_container').hide();
-    });
-  }
+  dojo.require("esri.tasks.find");
+  dojo.require("esri.tasks.query");
+  dojo.require("esri.tasks.geometry");
+  dojo.require("esri.layers.FeatureLayer");
+  dojo.require("esri.SnappingManager");
+  dojo.require("agsjs.dijit.TOC");  //agsjs legend
 
   dojo.ready(init);
 </script>
