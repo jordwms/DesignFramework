@@ -133,18 +133,12 @@ var toolbar, geometryService; //for drawing toolbar for distance measurement
                 
                 //clear graphics and identify table
                 map.graphics.clear();
-                dijit.byId("inspList").setContent("");
-
-                //clear datagrid results
-                //var newStore = new dojo.data.ItemFileReadStore({data: {  identifier: "",  items: []}});
-                //grid.setStore(newStore);
-                //dijit.byId("searchText").set("value", "");
+                document.getElementById("display_list").innerHTML="";
+  
 
                 //select identify window
-                dijit.byId("identifyBtn").selected = true;
-                dijit.byId("legendBtn").selected = false;
-                //make sure accordion container has the identify pane open
-                //dijit.byId("accordion-container").selectChild(dijit.byId("identify-pane"));
+                //dijit.byId("identifyBtn").selected = true;
+                //dijit.byId("legendBtn").selected = false;
                 
                 mapClickEventHandle = dojo.connect(map, "onClick", doIdentify);
               }
@@ -158,10 +152,10 @@ var toolbar, geometryService; //for drawing toolbar for distance measurement
                 
                 //clear graphics and identify table
                 map.graphics.clear();
-                dijit.byId("inspList").setContent("");
+                document.getElementById("display_list").innerHTML="";
 
                  //make sure accordion container has the measure pane open
-                dijit.byId("accordion-container").selectChild(dijit.byId("identify-pane"));
+                //dijit.byId("accordion-container").selectChild(dijit.byId("identify-pane"));
 
                 //active drawing tool
                 toolbar.activate(esri.toolbars.Draw.POLYLINE);
@@ -184,14 +178,15 @@ var toolbar, geometryService; //for drawing toolbar for distance measurement
               
               deactivateSelectTool();
               map.graphics.clear();
-              dijit.byId("leakEditFields").setContent("");
+              document.getElementById("display_list").innerHTML="";
+              //dijit.byId("leakEditFields").setContent("");
 
               mapClickEventHandle = dojo.connect(map, "onClick", addLeak);
               break;
           case 'clear':
               //clear graphics and results
               map.graphics.clear();
-              dijit.byId("inspList").setContent("");
+              document.getElementById("display_list").innerHTML="";
 
               //clear feature selection
               leakLayer.clearSelection();
@@ -291,8 +286,7 @@ var toolbar, geometryService; //for drawing toolbar for distance measurement
         content+="</table>";
 
         //set the content in the identify table to the above
-        dijit.byId("inspList").setContent(content);
-       
+        document.getElementById("display_list").innerHTML=content;
     }
 
       //Add Leak Layer Features
@@ -422,7 +416,9 @@ var toolbar, geometryService; //for drawing toolbar for distance measurement
 
 
         //set the content in the identify table to the above
-        dijit.byId("leakEditFields").setContent(content);
+        document.getElementById("display_list").innerHTML = "";
+        document.getElementById("display_list").appendChild(content);
+        //dijit.byId("leakEditFields").setContent(content);
 
 
       }
@@ -454,7 +450,8 @@ var toolbar, geometryService; //for drawing toolbar for distance measurement
         leakLayer.refresh();
         inspMapLayer.refresh();
 
-        dijit.byId("leakEditFields").setContent("Leak Point Saved!");
+        document.getElementById("display_list").innerHTML="Leak Point Saved!";
+        //dijit.byId("leakEditFields").setContent("Leak Point Saved!");
 
       }
 
@@ -463,7 +460,8 @@ var toolbar, geometryService; //for drawing toolbar for distance measurement
 
           //delete selected leak point
           leakLayer.applyEdits(null,null,[updateFeature]);
-          dijit.byId("leakEditFields").setContent("");
+          document.getElementById("display_list").innerHTML="";
+          //dijit.byId("leakEditFields").setContent("");
 
           //clear selected features and refresh inspection map layer
           leakLayer.clearSelection();

@@ -35,6 +35,7 @@ var geomtryServiceUrl = nonsecureBaseUrl+"Geometry/GeometryServer";
 //proxy page on server
 //var proxyUrl = "./proxy/proxy.ashx"; //"https://dc2-dev-gis/proxy/proxy.ashx";   //"./proxy/proxy.ashx"; //
 
+var pushPin = "./modules/map/images/push_pin.png";
 
  /**
   * point zoom factor, used to convert a point into an extent.

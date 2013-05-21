@@ -180,7 +180,7 @@
         identifyTask = new esri.tasks.IdentifyTask(inspDataUrl);
         identifyParams = new esri.tasks.IdentifyParameters();
 
-        pushpinSymbol = new esri.symbol.PictureMarkerSymbol('./images/push_pin.png',30,30).setOffset(10,0);
+        pushpinSymbol = new esri.symbol.PictureMarkerSymbol(pushPin,30,30).setOffset(10,0);
 
         //symbology for graphics
         markerSymbol = new esri.symbol.SimpleMarkerSymbol(esri.symbol.SimpleMarkerSymbol.STYLE_SQUARE, 10, new esri.symbol.SimpleLineSymbol(esri.symbol.SimpleLineSymbol.STYLE_SOLID, new dojo.Color([255, 0, 0]), 1), new dojo.Color([0, 255, 0, 0.25]));
