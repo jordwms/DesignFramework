@@ -81,7 +81,7 @@
                     layer: inspMapLayer,
                     title: "Inspection Data"
                   }]
-                }, 'tocDiv');
+                }, 'display_toc');
                 toc.startup();
 
                 //setup identify parameters after layers have been loaded

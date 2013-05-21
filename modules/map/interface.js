@@ -133,6 +133,7 @@ var toolbar, geometryService; //for drawing toolbar for distance measurement
                 
                 //clear graphics and identify table
                 map.graphics.clear();
+                document.getElementById("display_toc").style.display = "none";
                 document.getElementById("display_list").innerHTML="";
   
 
@@ -152,6 +153,7 @@ var toolbar, geometryService; //for drawing toolbar for distance measurement
                 
                 //clear graphics and identify table
                 map.graphics.clear();
+                document.getElementById("display_toc").style.display = "none";
                 document.getElementById("display_list").innerHTML="";
 
                  //make sure accordion container has the measure pane open
@@ -178,6 +180,7 @@ var toolbar, geometryService; //for drawing toolbar for distance measurement
               
               deactivateSelectTool();
               map.graphics.clear();
+              document.getElementById("display_toc").style.display = "none";
               document.getElementById("display_list").innerHTML="";
               //dijit.byId("leakEditFields").setContent("");
 
@@ -186,6 +189,7 @@ var toolbar, geometryService; //for drawing toolbar for distance measurement
           case 'clear':
               //clear graphics and results
               map.graphics.clear();
+              document.getElementById("display_toc").style.display = "inline";
               document.getElementById("display_list").innerHTML="";
 
               //clear feature selection

@@ -74,6 +74,11 @@ div.display_list{
 	width: 100%;
 	overflow:scroll;
 }
+div.display_toc{
+	height: 100%;
+	width: 100%;
+	overflow:scroll;
+}
 
 div.actions{
 	width: 100%;
