@@ -3,7 +3,7 @@
       var geometryService;
       var visible = [];
       var identifyTask, identifyParams, pushpinSymbol;  //identify features on the map
-      var identifyLineSymbol, hilightLineSymbol; //identify symbols
+      var identifyLineSymbol, hilightLineSymbol, identifyLineOutline; //identify symbols
       var identifyPolygonSymbol, hilightPolygonSymbol;
       var identifyPointOutline, identifyPointSymbol, hilightPointSymbol;
 
@@ -189,14 +189,19 @@
 
         //symbology for identify
         identifyLineSymbol = new esri.symbol.SimpleLineSymbol(esri.symbol.SimpleLineSymbol.STYLE_SOLID, new dojo.Color([135, 206, 250, 0.65]), 3);
-        hilightLineSymbol = new esri.symbol.SimpleLineSymbol(esri.symbol.SimpleLineSymbol.STYLE_SOLID, new dojo.Color([255, 0, 0, 0.65]), 3);
+        hilightLineSymbol = new esri.symbol.SimpleLineSymbol(esri.symbol.SimpleLineSymbol.STYLE_SOLID, new dojo.Color([125,125,125,0.35]), 3);
+        identifyLineOutline = new esri.symbol.SimpleFillSymbol(esri.symbol.SimpleFillSymbol.STYLE_NULL,
+           new esri.symbol.SimpleLineSymbol(esri.symbol.SimpleLineSymbol.STYLE_SOLID,
+           new dojo.Color([255,0,0]), 10),new dojo.Color([255,255,0,0.25]));
 
         identifyPolygonSymbol = new esri.symbol.SimpleFillSymbol(esri.symbol.SimpleFillSymbol.STYLE_NULL, identifyLineSymbol, new dojo.Color([0, 0, 0]), 0);
-        hilightPolygonSymbol = new esri.symbol.SimpleFillSymbol(esri.symbol.SimpleFillSymbol.STYLE_NULL, hilightLineSymbol, new dojo.Color([0, 0, 0]), 0);
+        hilightPolygonSymbol = new esri.symbol.SimpleFillSymbol(esri.symbol.SimpleFillSymbol.STYLE_NULL, hilightLineSymbol, new dojo.Color([125,125,125,0.35]), 0);
 
-        identifyPointOutline = new esri.symbol.SimpleLineSymbol(esri.symbol.SimpleLineSymbol.STYLE_NULL, new dojo.Color([0, 0, 0]), 0);
+        identifyPointOutline = new esri.symbol.SimpleMarkerSymbol(esri.symbol.SimpleMarkerSymbol.STYLE_CIRCLE, 12,
+           new esri.symbol.SimpleLineSymbol(esri.symbol.SimpleLineSymbol.STYLE_SOLID, 
+           new dojo.Color([255,0,0]), 1), new dojo.Color([0,255,0,0.25])); 
         identifyPointSymbol = new esri.symbol.SimpleMarkerSymbol(esri.symbol.SimpleMarkerSymbol.STYLE_CIRCLE, 6, identifyPointOutline, new dojo.Color([135, 206, 250, 0.65]));
-        hilightPointSymbol = new esri.symbol.SimpleMarkerSymbol(esri.symbol.SimpleMarkerSymbol.STYLE_CIRCLE, 6, identifyPointOutline, new dojo.Color([255, 0, 0, 0.65]));
+        hilightPointSymbol = new esri.symbol.SimpleMarkerSymbol(esri.symbol.SimpleMarkerSymbol.STYLE_CIRCLE, 6, identifyPointOutline, new dojo.Color([125,125,125,0.35]));
 
         //set leak feature layer selection symbol
         leakLayer.setSelectionSymbol(hilightPointSymbol);

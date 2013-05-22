@@ -53,9 +53,9 @@ var toolbar, geometryService; //for drawing toolbar for distance measurement
         dojo.some(map.graphics.graphics,function(graphic){
           if (graphic.attributes.OBJECTID.toString() === id.toString()) {
             if (graphic.geometry.type == 'point') {
-              graphic.setSymbol(hilightPointSymbol);
+              graphic.setSymbol(identifyPointOutline);
             } else if (graphic.geometry.type == 'polyline') {
-              graphic.setSymbol(hilightLineSymbol);
+              graphic.setSymbol(identifyLineOutline);
             } else if (graphic.geometry.type == 'polygon') {
               graphic.setSymbol(hilightPolygonSymbol);
             }
