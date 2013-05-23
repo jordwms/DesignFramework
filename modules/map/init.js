@@ -10,6 +10,7 @@
       var leakLayer, updateFeature, leakAdd;  //Feature layer for editing pipe leaks
       var querySgmt, queryTask, sgmtDijit;
       var closestLines = new Array();  //closest line segments to leak point
+      var querySgmtTask, querySgmtParams, lineSgmtGraphic;  //find task for closest line segments when editing leaks & current selected graphic
 
       function init() {
          
@@ -99,11 +100,17 @@
         //query task to determine closest line segments
         queryTask = new esri.tasks.QueryTask(lineSgmtLayerUrl);
 
-
         // Query
         querySgmt = new esri.tasks.Query();
         querySgmt.returnGeometry = true;
-        querySgmt.outFields = ["SegmentGUID","LineGroupGUID","SegmentName"];
+        querySgmt.outFields = ["SegmentGUID","LineGroupGUID","SegmentName","OBJECTID"];
+
+        //query to highlight line sgmt when editing leak properties
+        querySgmtTask = new esri.tasks.QueryTask(lineSgmtLayerUrl);
+        // query
+        querySgmtParams = new esri.tasks.Query();
+        querySgmtParams.returnGeometry = true;
+        querySgmtParams.outFields = ["SegmentGUID","OBJECTID"];
 
         // before edits are applied to the leak feature layer
         dojo.connect(leakLayer, 'onBeforeApplyEdits', function(adds, updates, deletes){
@@ -147,6 +154,7 @@
               closestLines[i] = new Array();
               closestLines[i]["label"] = resultFeatures[i].attributes.SegmentName.toString();
               closestLines[i]["value"] = resultFeatures[i].attributes.SegmentGUID.toString();
+              closestLines[i]["OBJECTID"] = resultFeatures[i].attributes.OBJECTID.toString();
               if (i == 0){
                 closestLines[i]["selected"] = true;
               }else{
@@ -223,7 +231,7 @@
       }
 
       function mapLoadHandler(map) {
-
+        
         //enable ability to use scroll wheel to zoom in/out
         map.enableScrollWheelZoom();
       }

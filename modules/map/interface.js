@@ -389,12 +389,27 @@ var toolbar, geometryService; //for drawing toolbar for distance measurement
         var lineSgmtGuid = document.createElement("select"),option,i=0,il=closestLines.length;
         lineSgmtGuid.type = "text";
         lineSgmtGuid.id = "closestLineSgmt";
+        lineSgmtGuid.onchange = function(){
+          //clear current selected line sgmt if selected
+          if (lineSgmtGraphic != null){
+            map.graphics.remove(lineSgmtGraphic);
+          }
+
+          var selGuid = this.selectedOptions[0].value;
+          //highlight selected line segment
+          if(selGuid != null){
+            querySgmtParams.where = "SegmentGUID = '" + selGuid + "'";
+            querySgmtTask.execute(querySgmtParams,showSgmtResults);
+          }
+        };
 
         var option;
         for(var i=0; i<il; i+=1){
           option = document.createElement('option');
           option.value = closestLines[i]["value"];
           option.appendChild(document.createTextNode(closestLines[i]["label"]));
+          //option.addEventListener("mouseover",sgmtMouseOver,false);
+        
           if (closestLines[i]["value"] == updateFeature.attributes['SegmentGUID']){
             //if editing existing leaks, select the one from the database
             option.selected = true;
@@ -473,6 +488,21 @@ var toolbar, geometryService; //for drawing toolbar for distance measurement
 
           leakLayer.refresh();
           inspMapLayer.refresh();
+
+      }
+
+      //determine the selected line sgmt on the map when changing nearest line sgmt selection
+      function showSgmtResults(results) {
+       
+        if (results.features.length > 0){
+          lineSgmtGraphic = results.features[0];
+
+            //highlight selected line segment
+            if (lineSgmtGraphic.geometry.type == 'polyline') {
+              lineSgmtGraphic.setSymbol(identifyLineOutline);
+              map.graphics.add(lineSgmtGraphic);
+            }
+        }
 
       }
 
