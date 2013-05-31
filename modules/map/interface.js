@@ -530,7 +530,7 @@ var toolbar, geometryService; //for drawing toolbar for distance measurement
 
         // SegmentGUID
         content.appendChild(document.createElement('br'));
-        content.appendChild(document.createTextNode('SegmentGUID: '));
+        content.appendChild(document.createTextNode('Line Section: '));
         var sgmtGuid = document.createElement("input");
         sgmtGuid.type = "text";
         sgmtGuid.id = "segmentGUID";
@@ -538,15 +538,35 @@ var toolbar, geometryService; //for drawing toolbar for distance measurement
         sgmtGuid.value = updateFeature.attributes['SegmentGUID'];
         content.appendChild(sgmtGuid);
 
+        //Segment Button
+        var sgmtBtn = document.createElement("div");
+        sgmtBtn.setAttribute('class',"btn");
+        sgmtBtn.id = "edit-group";
+        sgmtBtn.onclick = function(){selectSgmt();}
+        var iconAstr = document.createElement('i');
+        iconAstr.setAttribute('class',"icon-asterisk");
+        sgmtBtn.appendChild(iconAstr);
+        content.appendChild(sgmtBtn);
+
         //LineGroupGUID
         content.appendChild(document.createElement('br'));
-        content.appendChild(document.createTextNode('LineGroupGUID: '));
+        content.appendChild(document.createTextNode('Line Group: '));
         var lineGrpGuid = document.createElement("input");
         lineGrpGuid.type = "text";
         lineGrpGuid.id = "lineGroupGUID";
         lineGrpGuid.setAttribute('size',36);
         lineGrpGuid.value = updateFeature.attributes['LineGroupGUID'];
         content.appendChild(lineGrpGuid);
+
+        //Line Grouping Button
+        var grpBtn = document.createElement("div");
+        grpBtn.setAttribute('class',"btn");
+        grpBtn.id = "edit-group";
+        grpBtn.onclick = function(){selectGroup();}
+        iconAstr = document.createElement('i');
+        iconAstr.setAttribute('class',"icon-asterisk");
+        grpBtn.appendChild(iconAstr);
+        content.appendChild(grpBtn);
 
         //BeginFlowID
         content.appendChild(document.createElement('br'));
@@ -558,6 +578,16 @@ var toolbar, geometryService; //for drawing toolbar for distance measurement
         beginFlowID.value = updateFeature.attributes['BeginFlowID'];
         content.appendChild(beginFlowID);
 
+        //Begin Flow Button
+        var bflowBtn = document.createElement("div");
+        bflowBtn.setAttribute('class',"btn");
+        bflowBtn.id = "edit-group";
+        bflowBtn.onclick = function(){selectBeginFlow();}
+        iconAstr = document.createElement('i');
+        iconAstr.setAttribute('class',"icon-asterisk");
+        bflowBtn.appendChild(iconAstr);
+        content.appendChild(bflowBtn);
+
         //EndFlowID
         content.appendChild(document.createElement('br'));
         content.appendChild(document.createTextNode('EndFlowID: '));
@@ -568,6 +598,15 @@ var toolbar, geometryService; //for drawing toolbar for distance measurement
         endFlowID.value = updateFeature.attributes['EndFlowID'];
         content.appendChild(endFlowID);
 
+        //End Flow Button
+        var eflowBtn = document.createElement("div");
+        eflowBtn.setAttribute('class',"btn");
+        eflowBtn.id = "edit-group";
+        eflowBtn.onclick = function(){selectEndFlow();}
+        iconAstr = document.createElement('i');
+        iconAstr.setAttribute('class',"icon-asterisk");
+        eflowBtn.appendChild(iconAstr);
+        content.appendChild(eflowBtn);
 
         //save line sgmt edits
         content.appendChild(document.createElement('br'));
