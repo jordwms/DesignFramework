@@ -276,6 +276,9 @@ var toolbar, geometryService; //for drawing toolbar for distance measurement
             if (idResults[i].layerName == "Leak"){
               content+="<tr><td><a href='#' onClick='editLeak(" + idResults[i].feature.attributes['OBJECTID'] + ")'; return false;'>Edit Leak</a></td></tr>";
             }
+            if (idResults[i].layerName == "LineSegment"){
+              content+="<tr><td><a href='#' onClick='editSgmt(" + idResults[i].feature.attributes['OBJECTID'] + ")'; return false;'>Edit Line Segment</a></td></tr>";
+            }
 
               var key;
               //grab the key/value pair for each attribute and add to the table
@@ -293,6 +296,7 @@ var toolbar, geometryService; //for drawing toolbar for distance measurement
         document.getElementById("display_list").innerHTML=content;
     }
 
+    /* LEAK FEATURE ADD/UPDATE ------------------------------------------------------------------------- */
       //Add Leak Layer Features
       function addLeak(evt){
        var markerSymbol = new esri.symbol.SimpleMarkerSymbol(esri.symbol.SimpleMarkerSymbol.STYLE_CIRCLE, 8, new esri.symbol.SimpleLineSymbol(esri.symbol.SimpleLineSymbol.STYLE_SOLID, new dojo.Color("red"), 4));
@@ -344,7 +348,7 @@ var toolbar, geometryService; //for drawing toolbar for distance measurement
 
         var content = "";
         var content = document.createElement('b');
-        content.appendChild(document.createTextNode('Leak Features'));
+        content.appendChild(document.createTextNode('Leak Feature'));
 
         // collected by
         content.appendChild(document.createElement('br'));
@@ -491,6 +495,17 @@ var toolbar, geometryService; //for drawing toolbar for distance measurement
 
       }
 
+      /* LINE SEGMENT FEATURE UPDATE ------------------------------------------------------------------------------ */
+      //Edit Line Segment
+      function editSgmt(lineSgmtObjID){
+
+          var selectQuery = new esri.tasks.Query();
+          selectQuery.where = "OBJECTID = " + lineSgmtObjID;
+          //select line segment to edit
+          lineSgmtLayer.selectFeatures(selectQuery, esri.layers.FeatureLayer.SELECTION_NEW);
+
+      }
+
       //determine the selected line sgmt on the map when changing nearest line sgmt selection
       function showSgmtResults(results) {
        
@@ -506,6 +521,99 @@ var toolbar, geometryService; //for drawing toolbar for distance measurement
 
       }
 
+      //show line segment add/edit information for selected line segments
+      function showLineSgmtUpdate() {
+
+        var content = "";
+        var content = document.createElement('b');
+        content.appendChild(document.createTextNode('Line Segment Feature'));
+
+        // SegmentGUID
+        content.appendChild(document.createElement('br'));
+        content.appendChild(document.createTextNode('SegmentGUID: '));
+        var sgmtGuid = document.createElement("input");
+        sgmtGuid.type = "text";
+        sgmtGuid.id = "segmentGUID";
+        sgmtGuid.setAttribute('size',36);
+        sgmtGuid.value = updateFeature.attributes['SegmentGUID'];
+        content.appendChild(sgmtGuid);
+
+        //LineGroupGUID
+        content.appendChild(document.createElement('br'));
+        content.appendChild(document.createTextNode('LineGroupGUID: '));
+        var lineGrpGuid = document.createElement("input");
+        lineGrpGuid.type = "text";
+        lineGrpGuid.id = "lineGroupGUID";
+        lineGrpGuid.setAttribute('size',36);
+        lineGrpGuid.value = updateFeature.attributes['LineGroupGUID'];
+        content.appendChild(lineGrpGuid);
+
+        //BeginFlowID
+        content.appendChild(document.createElement('br'));
+        content.appendChild(document.createTextNode('BeginFlowID: '));
+        var beginFlowID = document.createElement("input");
+        beginFlowID.type = "text";
+        beginFlowID.id = "beginFlowID";
+        beginFlowID.setAttribute('size',36);
+        beginFlowID.value = updateFeature.attributes['BeginFlowID'];
+        content.appendChild(beginFlowID);
+
+        //EndFlowID
+        content.appendChild(document.createElement('br'));
+        content.appendChild(document.createTextNode('EndFlowID: '));
+        var endFlowID = document.createElement("input");
+        endFlowID.type = "text";
+        endFlowID.id = "endFlowID";
+        endFlowID.setAttribute('size',36);
+        endFlowID.value = updateFeature.attributes['EndFlowID'];
+        content.appendChild(endFlowID);
+
+
+        //save line sgmt edits
+        content.appendChild(document.createElement('br'));
+        var saveBtn = document.createElement("input");
+        saveBtn.type = "submit";
+        saveBtn.value = "Save";
+        saveBtn.onclick = function(){saveLineSgmtEdits();}
+        content.appendChild(saveBtn);
+
+
+        //set the content in the identify table to the above
+        document.getElementById("display_list").innerHTML = "";
+        document.getElementById("display_list").appendChild(content);
+
+      }
+
+      //save line segment edits
+      function saveLineSgmtEdits(){
+
+        //set up attribute json to push to server
+        var attrUpdates =   {
+            "geometry" : updateFeature.geometry,  
+            "attributes" : {
+              "OBJECTID" : updateFeature.attributes['OBJECTID'],
+              "SegmentGUID" : document.getElementById('segmentGUID').value,
+              "LineGroupGUID" : document.getElementById('lineGroupGUID').value,
+              "BeginFlowID" : document.getElementById('beginFlowID').value,
+              "EndFlowID" : document.getElementById('endFlowID').value
+            }
+        }
+
+        //apply attribute edits to line segment layer
+        lineSgmtLayer.applyEdits(null,[attrUpdates],null);
+
+        //clear selected features and refresh inspection map layer
+        lineSgmtLayer.clearSelection();
+        map.graphics.clear();
+        
+        lineSgmtLayer.refresh();
+        inspMapLayer.refresh();
+
+        document.getElementById("display_list").innerHTML="Line Segment Saved!";
+        
+      }
+
+      /* -------------------------------------------------------------------------------------------------------- */
       var resizeTimer;
       function resizeMap() {
             //resize the map when the browser resizes - view the 'Resizing and repositioning the map' section in 

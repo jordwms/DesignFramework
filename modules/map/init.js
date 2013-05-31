@@ -12,6 +12,8 @@
       var closestLines = new Array();  //closest line segments to leak point
       var querySgmtTask, querySgmtParams, lineSgmtGraphic;  //find task for closest line segments when editing leaks & current selected graphic
 
+      var lineSgmtLayer;  //feature layer for editing line segments
+
       function init() {
          
           $(window).resize(function(){
@@ -71,6 +73,12 @@
           //infoTemplate: attInspector
         });
 
+        //line segment Feature Layer
+        lineSgmtLayer = new esri.layers.FeatureLayer(lineSgmtFeatureLyrUrl, {
+          mode: esri.layers.FeatureLayer.MODE_SELECTION,
+          outFields: ["*"]
+        });
+
         // When Layers are Added to the map
         dojo.connect(map, 'onLayersAddResult', function(results) {
 
@@ -95,7 +103,7 @@
 
               });
 
-        map.addLayers([inspMapLayer, leakLayer]);
+        map.addLayers([inspMapLayer, leakLayer, lineSgmtLayer]);
 
         //query task to determine closest line segments
         queryTask = new esri.tasks.QueryTask(lineSgmtLayerUrl);
@@ -183,6 +191,19 @@
 
         });
 
+        //after line segment selection is made for Editing
+        dojo.connect(lineSgmtLayer,"onSelectionComplete", function(features){
+
+          var selLineSgmts = lineSgmtLayer.getSelectedFeatures();
+
+            //set the feature to update and show results
+            updateFeature = selLineSgmts[0];
+
+            //display line sgmt properties for editing
+            showLineSgmtUpdate();
+       
+
+        });
 
         //set up identify task
         identifyTask = new esri.tasks.IdentifyTask(inspDataUrl);

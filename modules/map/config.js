@@ -13,7 +13,7 @@ var inspDataUrl = nonsecureBaseUrl+"PipeLineMapping/MapServer";
 var ctrlPtLayerUrl = nonsecureBaseUrl+"PipelineMapping/MapServer/0";
 
 // Line Segment Feature Layer
-//var lineSgmtLayerUrl = baseUrl+"SecureServices/PipeLineSecure/FeatureServer/14?token="+token;
+var lineSgmtFeatureLyrUrl = baseUrl+"SecureServices/PipeLineSecure/FeatureServer/14?token="+token;
 var lineSgmtLayerUrl = nonsecureBaseUrl+"PipelineMapping/MapServer/14";
 
 //leak feature layer
