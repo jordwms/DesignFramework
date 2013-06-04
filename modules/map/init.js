@@ -12,7 +12,7 @@
       var closestLines = new Array();  //closest line segments to leak point
       var querySgmtTask, querySgmtParams, lineSgmtGraphic;  //find task for closest line segments when editing leaks & current selected graphic
 
-      var lineSgmtLayer;  //feature layer for editing line segments
+      var lineSgmtLayer, ctrlPtParams;  //feature layer for editing line segments
 
       function init() {
          
@@ -140,6 +140,19 @@
           //}
         });
 
+        // before edits are applied to the line segment feature layer
+        dojo.connect(lineSgmtLayer, 'onBeforeApplyEdits', function(adds, updates, deletes){
+          var addsDone = adds;
+          if (adds != null){
+            //grab feature to update
+            if (adds.length > 0){
+              updateFeature = adds[0];
+            }
+            
+          }
+
+        });
+
         // Listen for GeometryService onBufferComplete event
         dojo.connect(geometryService, "onBufferComplete", function(geometries) {
   
@@ -208,6 +221,7 @@
         //set up identify task
         identifyTask = new esri.tasks.IdentifyTask(inspDataUrl);
         identifyParams = new esri.tasks.IdentifyParameters();
+        ctrlPtParams = new esri.tasks.IdentifyParameters();
 
         pushpinSymbol = new esri.symbol.PictureMarkerSymbol(pushPin,30,30).setOffset(10,0);
 
@@ -234,6 +248,8 @@
 
         //set leak feature layer selection symbol
         leakLayer.setSelectionSymbol(hilightPointSymbol);
+        //line segment feature layer selection symbol
+        lineSgmtLayer.setSelectionSymbol(identifyLineOutline);
 
         dojo.connect(map, "onLoad", mapLoadHandler);
       }

@@ -11,6 +11,7 @@ var inspDataUrl = nonsecureBaseUrl+"PipeLineMapping/MapServer";
 
 // Control Point Feature Layer
 var ctrlPtLayerUrl = nonsecureBaseUrl+"PipelineMapping/MapServer/0";
+var ctrlPtLayer = [0];
 
 // Line Segment Feature Layer
 var lineSgmtFeatureLyrUrl = baseUrl+"SecureServices/PipeLineSecure/FeatureServer/14?token="+token;
