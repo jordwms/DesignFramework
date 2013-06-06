@@ -538,7 +538,7 @@ var toolbar, geometryService; //for drawing toolbar for distance measurement
         var sgmtGuid = document.createElement("input");
         sgmtGuid.type = "text";
         sgmtGuid.id = "segmentGUID";
-        sgmtGuid.setAttribute('size',30);
+        sgmtGuid.setAttribute('size',20);
         sgmtGuid.value = updateFeature.attributes['SegmentGUID'];
         content.appendChild(sgmtGuid);
 
@@ -558,7 +558,7 @@ var toolbar, geometryService; //for drawing toolbar for distance measurement
         var lineGrpGuid = document.createElement("input");
         lineGrpGuid.type = "text";
         lineGrpGuid.id = "lineGroupGUID";
-        lineGrpGuid.setAttribute('size',30);
+        lineGrpGuid.setAttribute('size',20);
         lineGrpGuid.value = updateFeature.attributes['LineGroupGUID'];
         content.appendChild(lineGrpGuid);
 
@@ -578,7 +578,7 @@ var toolbar, geometryService; //for drawing toolbar for distance measurement
         var beginFlowID = document.createElement("input");
         beginFlowID.type = "text";
         beginFlowID.id = "beginFlowID";
-        beginFlowID.setAttribute('size',30);
+        beginFlowID.setAttribute('size',20);
         beginFlowID.value = updateFeature.attributes['BeginFlowID'];
         content.appendChild(beginFlowID);
 
@@ -598,7 +598,7 @@ var toolbar, geometryService; //for drawing toolbar for distance measurement
         var endFlowID = document.createElement("input");
         endFlowID.type = "text";
         endFlowID.id = "endFlowID";
-        endFlowID.setAttribute('size',30);
+        endFlowID.setAttribute('size',20);
         endFlowID.value = updateFeature.attributes['EndFlowID'];
         content.appendChild(endFlowID);
 
@@ -682,19 +682,21 @@ var toolbar, geometryService; //for drawing toolbar for distance measurement
       function saveLineSgmtEdits(){
 
         //set up attribute json to push to server
-        var attrUpdates =   {
+        var sgmtAttrUpdates =   {
             "geometry" : updateFeature.geometry,  
             "attributes" : {
-              "OBJECTID" : updateFeature.attributes['OBJECTID'],
-              "SegmentGUID" : document.getElementById('segmentGUID').value,
-              "LineGroupGUID" : document.getElementById('lineGroupGUID').value,
+              //"OBJECTID" : updateFeature.attributes['OBJECTID'],
+              //"SegmentGUID" : document.getElementById('segmentGUID').value,
+              //"LineGroupGUID" : document.getElementById('lineGroupGUID').value,
               "BeginFlowID" : document.getElementById('beginFlowID').value,
               "EndFlowID" : document.getElementById('endFlowID').value
             }
         }
 
         //apply attribute edits to line segment layer
-        lineSgmtLayer.applyEdits(null,[attrUpdates],null);
+        lineSgmtLayer.applyEdits(null,[sgmtAttrUpdates],null, null, function(err){
+            var errMsg = err;
+        });
 
         //clear selected features and refresh inspection map layer
         lineSgmtLayer.clearSelection();
@@ -706,7 +708,7 @@ var toolbar, geometryService; //for drawing toolbar for distance measurement
         document.getElementById("display_list").innerHTML="Line Segment Saved!";
 
         //reset tool back to identify
-        activeToolId = 'clear'; //set to clear, so it's different than identify and resets identify tool
+        activateTool('clear'); 
         activateTool('identify');
         
       }

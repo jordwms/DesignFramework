@@ -3,8 +3,9 @@
 */
 var baseUrl = "https://dc2-dev-gis/ArcGIS/rest/services/";
 var nonsecureBaseUrl = "http://dc2-dev-gis/ArcGIS/rest/services/";
-//var token = "K_exsXC1P3eHGXCswNnZKZnvUpmnzGIG9E81QdHXeSaqJQDNLqQNRvr7uSClNLM8";
-var token = "oi9cERdPBR2RCXGw50_BfepH0zPYANuVZuHxmJulpJ7U83wInmnABW4h-eWOD2_Y";
+
+//var token = "oi9cERdPBR2RCXGw50_BfepH0zPYANuVZuHxmJulpJ7U83wInmnABW4h-eWOD2_Y";
+var token = "UenV09xiG9mvvltbXoD-8kB8HZa50XEvZ5pi1DEXEtrCUoo16pgGJ76Ixv69c6BL";
 
 //Inspection Data URL
 var inspDataUrl = nonsecureBaseUrl+"PipeLineMapping/MapServer";

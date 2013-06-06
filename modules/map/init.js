@@ -140,18 +140,6 @@
           //}
         });
 
-        // before edits are applied to the line segment feature layer
-        dojo.connect(lineSgmtLayer, 'onBeforeApplyEdits', function(adds, updates, deletes){
-          var addsDone = adds;
-          if (adds != null){
-            //grab feature to update
-            if (adds.length > 0){
-              updateFeature = adds[0];
-            }
-            
-          }
-
-        });
 
         // Listen for GeometryService onBufferComplete event
         dojo.connect(geometryService, "onBufferComplete", function(geometries) {
