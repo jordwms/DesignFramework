@@ -13,13 +13,13 @@ fieldset label {
     margin: 10px 0 0.2em 0;
 }
 fieldset table {
-    width: 95%;
+    width: 97%;
 }
 fieldset table tr {
     border-bottom: 1px solid #cccccc;
     padding: 5px 5px 3px 5px;
 }
-fieldset tr:last-child {
+fieldset table:last-child tr {
     border-bottom: none;
 }
 
@@ -72,9 +72,8 @@ canvas {
     font-weight: bold;
 }
 fieldset pre {
-    margin: 0;
+    margin: 10px 0;
     width: 95%;
-    font-size: .8em
 }
 
 fieldset table td:nth-child(2),
@@ -87,6 +86,7 @@ fieldset table td:last-child {
     display: table-cell;
     padding: 20px 0 0 30px;
     text-align: right;
+    width: 30px;
 }
 fieldset table td:first-child {
     padding: 0;
