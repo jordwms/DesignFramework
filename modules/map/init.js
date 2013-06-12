@@ -74,7 +74,7 @@
         });
 
         //line segment Feature Layer
-        lineSgmtLayer = new esri.layers.FeatureLayer(lineSgmtFeatureLyrUrl, {
+        lineSgmtLayer = new esri.layers.FeatureLayer(lineSgmtFeatLyrUrl, {
           mode: esri.layers.FeatureLayer.MODE_SELECTION,
           outFields: ["*"]
         });

@@ -119,9 +119,6 @@ var toolbar, geometryService; //for drawing toolbar for distance measurement
         //toolbar.deactivate();
         map.infoWindow.hide();
 
-        //deactivate onclick event
-        dojo.disconnect(mapClickEventHandle);
-
         var setBtnClass = false;
         leakAdd = false; //to keep track if we are adding a new leak point or editing
 
@@ -196,6 +193,7 @@ var toolbar, geometryService; //for drawing toolbar for distance measurement
               document.getElementById("display_list").innerHTML="";
 
               //clear feature selection
+              deactivateSelectTool();
               leakLayer.clearSelection();
               lineSgmtLayer.clearSelection();
 
@@ -502,6 +500,9 @@ var toolbar, geometryService; //for drawing toolbar for distance measurement
       /* LINE SEGMENT FEATURE UPDATE ------------------------------------------------------------------------------ */
       //Edit Line Segment
       function editSgmt(lineSgmtObjID){
+
+          //deactivate identify tool
+          deactivateSelectTool();
 
           var selectQuery = new esri.tasks.Query();
           selectQuery.where = "OBJECTID = " + lineSgmtObjID;
