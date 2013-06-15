@@ -12,7 +12,7 @@
       var closestLines = new Array();  //closest line segments to leak point
       var querySgmtTask, querySgmtParams, lineSgmtGraphic;  //find task for closest line segments when editing leaks & current selected graphic
 
-      var lineSgmtLayer, ctrlPtParams;  //feature layer for editing line segments
+      var lineSgmtLayer, lineSgmtIdentifyParams;  //feature layer for editing line segments
 
       function init() {
          
@@ -209,7 +209,7 @@
         //set up identify task
         identifyTask = new esri.tasks.IdentifyTask(inspDataUrl);
         identifyParams = new esri.tasks.IdentifyParameters();
-        ctrlPtParams = new esri.tasks.IdentifyParameters();
+        lineSgmtIdentifyParams = new esri.tasks.IdentifyParameters();
 
         pushpinSymbol = new esri.symbol.PictureMarkerSymbol(pushPin,30,30).setOffset(10,0);
 

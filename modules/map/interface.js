@@ -5,7 +5,7 @@ var mapClickEventHandle; // Id for the current map click event handler.
 var navToolbar;
 var activeToolId = 'pan'; // Id of the active map tool.
 var toolbar, geometryService; //for drawing toolbar for distance measurement
-
+var endFlowPtSelected = false;  //for editing line sgmt
 
 
       function execute(searchText) {
@@ -587,7 +587,7 @@ var toolbar, geometryService; //for drawing toolbar for distance measurement
         var bflowBtn = document.createElement("div");
         bflowBtn.setAttribute('class',"btn");
         bflowBtn.id = "edit-group";
-        bflowBtn.onclick = function(){selectBeginFlow();}
+        bflowBtn.onclick = function(){selFlowCtrlPt(false);}
         iconAstr = document.createElement('i');
         iconAstr.setAttribute('class',"icon-asterisk");
         bflowBtn.appendChild(iconAstr);
@@ -607,7 +607,7 @@ var toolbar, geometryService; //for drawing toolbar for distance measurement
         var eflowBtn = document.createElement("div");
         eflowBtn.setAttribute('class',"btn");
         eflowBtn.id = "edit-group";
-        eflowBtn.onclick = function(){selCtrlPtEndFlow();}
+        eflowBtn.onclick = function(){selFlowCtrlPt(true);}
         iconAstr = document.createElement('i');
         iconAstr.setAttribute('class',"icon-asterisk");
         eflowBtn.appendChild(iconAstr);
@@ -629,39 +629,38 @@ var toolbar, geometryService; //for drawing toolbar for distance measurement
       }
 
       // turn on select control point event for end flow
-      function selCtrlPtEndFlow(){
+      function selFlowCtrlPt(endFlowPt){
+        //keep track if end or begining flow ctrl point
+        endFlowPtSelected = endFlowPt;
+
         dojo.disconnect(mapClickEventHandle);
         map.setMapCursor('crosshair');
-        mapClickEventHandle = dojo.connect(map, "onClick", selectEndFlow);
+        mapClickEventHandle = dojo.connect(map, "onClick", selectFlowPt);
       }
 
       //select line segment to change line segment guid edit
       function selectSgmt(){
 
-
       }
 
       //select line segment group to change line segment group guid edit
       function selectGroup(){
-
-
+        
+        dojo.disconnect(mapClickEventHandle);
+        map.setMapCursor('crosshair');
+        mapClickEventHandle = dojo.connect(map, "onClick", selectLineSgmt);
       }
 
-      //select control point to change line segment begin flow guid edit
-      function selectBeginFlow(){    
-      
-      }  
-
-      //select control point to change line segment end flow guid edit
-      function selectEndFlow(evt){    
+      //select control point to change line segment flow guid edit - begin and end flow
+      function selectFlowPt(evt){    
 
           //set up identify parameters and then add graphics to the identified features to the map
-          ctrlPtParams.geometry = evt.mapPoint;
-          ctrlPtParams.mapExtent = map.extent;
-          ctrlPtParams.returnGeometry = true;
-          ctrlPtParams.layerIds = ctrlPtLayer;
-          ctrlPtParams.tolerance = 5;
-          identifyTask.execute(ctrlPtParams, dojo.hitch(this, function(ctrlPtResults){
+          lineSgmtIdentifyParams.geometry = evt.mapPoint;
+          lineSgmtIdentifyParams.mapExtent = map.extent;
+          lineSgmtIdentifyParams.returnGeometry = true;
+          lineSgmtIdentifyParams.layerIds = ctrlPtLayerId;
+          lineSgmtIdentifyParams.tolerance = 5;
+          identifyTask.execute(lineSgmtIdentifyParams, dojo.hitch(this, function(ctrlPtResults){
             findCtrlPt(ctrlPtResults);
           })); 
       } 
@@ -675,7 +674,38 @@ var toolbar, geometryService; //for drawing toolbar for distance measurement
               graphic.setSymbol(identifyPointSymbol);
               map.graphics.add(graphic);
 
-              document.getElementById('endFlowID').value = graphic.attributes["ControlPointGUID"];
+              if (endFlowPtSelected){
+                document.getElementById('endFlowID').value = graphic.attributes["ControlPointGUID"];
+              }else{
+                document.getElementById('beginFlowID').value = graphic.attributes["ControlPointGUID"];
+              }
+            }
+      }
+
+      //select line segment to change line grouping guid
+      function selectLineSgmt(evt){
+
+          //set up identify parameters and then add graphics to the identified features to the map
+          lineSgmtIdentifyParams.geometry = evt.mapPoint;
+          lineSgmtIdentifyParams.mapExtent = map.extent;
+          lineSgmtIdentifyParams.returnGeometry = true;
+          lineSgmtIdentifyParams.layerIds = lineSgmtLayerId;
+          lineSgmtIdentifyParams.tolerance = 5;
+          identifyTask.execute(lineSgmtIdentifyParams, dojo.hitch(this, function(lineSgmtResults){
+            findLineGroup(lineSgmtResults);
+          })); 
+      }
+
+      // find ctrl pt to grab the ctrl pt guid to populate the end-flow guid for line sgmt
+      function findLineGroup(lineSgmtResults){
+            var graphic = lineSgmtResults[0].feature;
+
+            //set graphics
+            if (graphic.geometry.type == 'polyline') {
+              graphic.setSymbol(identifyLineSymbol);
+              map.graphics.add(graphic);
+
+              document.getElementById('lineGroupGUID').value = graphic.attributes["LineGroupGUID"];
             }
       }
 

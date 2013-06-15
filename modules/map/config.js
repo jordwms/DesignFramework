@@ -5,18 +5,20 @@ var baseUrl = "https://dc2-dev-gis/ArcGIS/rest/services/";
 var nonsecureBaseUrl = "http://dc2-dev-gis/ArcGIS/rest/services/";
 
 //var token = "oi9cERdPBR2RCXGw50_BfepH0zPYANuVZuHxmJulpJ7U83wInmnABW4h-eWOD2_Y";
-var token = "UenV09xiG9mvvltbXoD-8kB8HZa50XEvZ5pi1DEXEtrCUoo16pgGJ76Ixv69c6BL";
+//var token = "UenV09xiG9mvvltbXoD-8kB8HZa50XEvZ5pi1DEXEtrCUoo16pgGJ76Ixv69c6BL";
+var token = "gTAG2MNFIa97A0h7mMpzvQGlfNA4mgtW6lcciBmP6qAH2HEytqC6ZywB-1pYAmj7";
 
 //Inspection Data URL
 var inspDataUrl = nonsecureBaseUrl+"PipeLineMapping/MapServer";
 
 // Control Point Feature Layer
 var ctrlPtLayerUrl = nonsecureBaseUrl+"PipelineMapping/MapServer/0";
-var ctrlPtLayer = [0];
+var ctrlPtLayerId = [0];
 
 // Line Segment Feature Layer
 var lineSgmtFeatLyrUrl = baseUrl+"SecureServices/PipeLineSecure/FeatureServer/14?token="+token;
 var lineSgmtLayerUrl = nonsecureBaseUrl+"PipelineMapping/MapServer/14";
+var lineSgmtLayerId = [14];
 
 //leak feature layer
 var leakLayerUrl = baseUrl+"SecureServices/PipeLineSecure/FeatureServer/1?token="+token;
