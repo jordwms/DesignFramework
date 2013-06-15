@@ -716,7 +716,7 @@ var endFlowPtSelected = false;  //for editing line sgmt
         var sgmtAttrUpdates =   {
             "geometry" : updateFeature.geometry,  
             "attributes" : {
-              //"OBJECTID" : updateFeature.attributes['OBJECTID'],
+              "OBJECTID" : updateFeature.attributes['OBJECTID'],
               //"SegmentGUID" : document.getElementById('segmentGUID').value,
               //"LineGroupGUID" : document.getElementById('lineGroupGUID').value,
               "BeginFlowID" : document.getElementById('beginFlowID').value,
