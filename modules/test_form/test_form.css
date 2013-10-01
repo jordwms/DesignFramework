@@ -10,24 +10,17 @@ fieldset legend {
 }
 fieldset label {
     display: block;
-    margin: 0 0 0.2em 0;
+    margin: 10px 0 0.2em 0;
 }
-
-fieldset > div {
+fieldset table {
+    width: 97%;
+}
+fieldset table tr {
     border-bottom: 1px solid #cccccc;
     padding: 5px 5px 3px 5px;
 }
-fieldset > div:last-child {
+fieldset table:last-child tr {
     border-bottom: none;
-    margin-bottom: 0;
-}
-fieldset > div:after {
-    clear: both;
-    float: none;
-    content: ".";
-    height: 0;
-    visibility: hidden;
-    display: block;
 }
 
 select,
@@ -51,14 +44,11 @@ textarea {
     height: 44px;
     font-size: 24px;
     line-height: 44px;
-    width: 100%;
-    margin: 0 0 5px 0;
+    width: 99%;
+    margin-bottom: 10px;
 }
 fieldset button {
-    margin: 3px 0;
-}
-fieldset button + label {
-    margin-top: 8px;
+    margin: 0 0 10px 0;
 }
 
 canvas {
@@ -79,27 +69,28 @@ canvas {
 }
 .btn {
     font-size: 11px;
-    padding: 2px 8px;
     font-weight: bold;
 }
+fieldset pre {
+    margin: 10px 0;
+    width: 95%;
+}
 
-fieldset div > span {
-    float: left;
-}
-span.input {
-    width: 82%;
-}
-span.unit {
-    display: none;
+fieldset table td:nth-child(2),
+fieldset table td:nth-child(3) {
     visibility: hidden;
-}
-span.info {
     display: none;
-    visibility: hidden;
 }
-span.action {
+fieldset table td:last-child {
+    visibility: visible;
+    display: table-cell;
+    padding: 20px 0 0 30px;
     text-align: right;
-    width: 18%;
+    width: 30px;
+}
+fieldset table td:first-child {
+    padding: 0;
+    text-align: left;
 }
 
 .active {
@@ -111,21 +102,8 @@ span.action {
     iPhone Landscape
     ========================================================================== */
 @media only screen and (min-width: 480px) {
-    span.input {
-        width: 78%;
-    }
-    span.unit {
-        display: block;
-        visibility: visible;
-        width: 17%;
-        text-align: center;
-        margin-top: 2.4em;
-    }
-    span.action {
-        width: 5%;
-    }
-    span.input + span.action {
-        width: 22%;
+    fieldset table {
+        width: 97%;
     }
 }
 
@@ -133,60 +111,42 @@ span.action {
     Android/HD mobile styles
     ========================================================================== */
 @media only screen and (min-width: 540px) {
-    
+    fieldset table td:nth-child(2) {
+        visibility: visible;
+        display: table-cell;
+        text-align: left;
+        padding: 20px 0 0 30px;
+    }
+    fieldset table td:last-child {
+        text-align: right;
+    }
+    fieldset table td:first-child {
+        text-align: left;
+    }
+    fieldset pre {
+        font-size: 1em;
+    }
 }
 
 /* ==== primary styles =====================================================
     iPad Portrait and Android HD landscape
     ========================================================================== */
 @media only screen and (min-width: 800px) {
+    fieldset {
+        padding: 2%;
+    }
+    fieldset table {
+        width: 99%;
+    }
     fieldset pre {
-        margin: 0 0 5px 20px;
-        width: 90%;
+        width: 96%;
     }
-    span.input {
-        width: 50%;
-    }
-    span.unit {
-        width: 10%;
-    }
-    span.info {
-        width: 32%;
-        display: block;
+    fieldset table td:nth-child(3) {
         visibility: visible;
+        display: table-cell;
+        text-align: left;
+        padding: 20px 0 0 30px;
     }
-    span.input + span.info {
-        width: 48%;
-        padding: 0 1%;
-    }
-    span.action {
-        width: 8%;
-    }
-    span.input + span.action {
-        width: 50%;
-    }
-    
-    select,
-    input,
-    input[type="text"],
-    input[type="password"],
-    input[type="datetime"],
-    input[type="datetime-local"],
-    input[type="date"],
-    input[type="month"],
-    input[type="time"],
-    input[type="week"],
-    input[type="number"],
-    input[type="email"],
-    input[type="url"],
-    input[type="search"],
-    input[type="tel"],
-    input[type="color"],
-    .uneditable-input,
-    textarea {
-        font-size: 18px;
-    }
-     
 }
 
 /* ==== primary styles =====================================================
@@ -219,12 +179,6 @@ span.action {
         font-size: 16px;
         line-height: 20px;
         height: 30px;
-    }
-    span.unit {
-        margin-top: 1.9em;
-    }
-    span.unit {
-        margin-top: 1.9em;
     }
 }
 
