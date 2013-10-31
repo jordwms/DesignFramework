@@ -6,11 +6,11 @@
 * 4. Clear the canvas
 * 5. Saves every time the user stops drawing (to a hidden field)
 *
-* In order to provide all these abilities, it is expected that the "id" parameter is used across
-*   several HTML tags as a class or id attribute identifier.
+* In order to provide all these abilities, it is expected that the "group" parameter is used across
+*   several HTML tags as a class attribute identifier.
 * The following elements are expected to be on the HTML document:
-* 1. <canvas> (id attribute)
-* 2. <input type="button"> OR <button> (id)
+* 1. <canvas> (class)
+* 2. <input type="button"> OR <button> OR class="btn" (class)
 * 3. <input type="hidden"> (name)
 *
 * "name" is used on the hidden field for form submission in the POST array.
