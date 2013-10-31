@@ -19,7 +19,7 @@
 */
 var canvasDrawr = function(options) {
     // Grab canvas element
-    var canvas = $('canvas#'+options.id)[0],
+    var canvas = $('canvas.'+options.group)[0],
         ctxt = canvas.getContext("2d");
 
     ctxt.pX = undefined;
@@ -44,18 +44,21 @@ var canvasDrawr = function(options) {
 
             offset = $(canvas).offset();
 
-            // Reset the canvas - the selector reacts to <input type="button" /> or <button>, or any tag with .btn and #options.id
-            $('button#'+options.id+', input[type=button]#'+options.id+', .btn#'+options.id).click(function() {
+            // Reset the canvas - the selector reacts to <input type="button" /> or <button>, or any tag with .btn and .options.group
+            $('button.'+options.group+', input[type=button].'+options.group+', .btn.'+options.group).click(function() {
                 ctxt.setTransform(1, 0, 0, 1, 0, 0);
                 ctxt.clearRect(0, 0, canvas.width, canvas.height);
 
-                 $('input[name="'+options.id+'"]').val('');
+                 $('input[name="'+options.group+'"]').val('');
 
             });
 
             // Load signature if image is found in hidden field
             var img = new Image();
-            img.src = $('input[name="'+options.id+'"]').val();
+            if ($('input[name="'+options.group+'"]').exists()) {
+                img.src = $('input[name="'+options.group+'"]').val();
+            }
+            
             
             img.onload = function() {
                 ctxt.drawImage(img, 0, 0);
@@ -146,7 +149,7 @@ var canvasDrawr = function(options) {
         
         // Write base 64 image to a hidden element so the image can be passed to PHP
         save: function(event) {
-            $('input[name="'+options.id+'"]').val( canvas.toDataURL() );
+            $('input[name="'+options.group+'"]').val( canvas.toDataURL() );
         },
 
         mouse_startMove: function(event) {
@@ -190,3 +193,6 @@ var canvasDrawr = function(options) {
 
     return self.init();
 };
+
+// Does a value exist??
+jQuery.fn.exists = function(){return this.length>0;}
