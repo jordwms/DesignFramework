@@ -1,0 +1,22 @@
+/* Styling can be done here, as well as scrollable sizing */
+#img-frame-outer {
+    border: 2px solid #d0d0d0;
+    height: auto;
+}
+/* Sets the overlaying canvas and underlaying image */
+#img-frame-inner {
+    position: relative;
+}
+#img-frame-inner img {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*width: 100%;*/
+}
+#img-frame-inner canvas {
+    z-index: 1;
+    top: 0;
+    left: 0;
+    /*width: 100%;*/
+}

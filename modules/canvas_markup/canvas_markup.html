@@ -1,0 +1,26 @@
+<div data-fn="canvas_markup">
+    <div id="img-frame-outer">
+        <div id="img-frame-inner">
+            <canvas id="canvas_markup"></canvas>
+            <img id="underlay" src="http://cdn4.spiegel.de/images/image-499233-galleryV9-grcy.jpg">
+            <input type="hidden" class="example">
+        </div>
+    </div>
+    <div class="toolset">
+        <button class="reset btn">Reset</button>
+        <button id="eraser" class="btn">Eraser</button>
+        <button id="marker" class="btn">Pen Tool</button>
+    </div>
+</div>
+<script>
+    $(window).load(function(){
+        var draw_area = new canvas_markup({ group:"example" });
+
+        $('.reset').click(function() {
+            draw_area.reset_markup();
+        });
+        // Call the color function instead of holding in hidden HTML attribute
+        // Pass in the marker width as a value into the library instead of setting in radio button or w/e
+
+    });
+</script>
